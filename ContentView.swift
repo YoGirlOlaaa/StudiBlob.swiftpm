@@ -10,9 +10,7 @@ struct ContentView: View {
                 .opacity(0.3)
             VStack{
                 
-                Text("🤍 Assignments 🤍")  .font(.system(size: 35, weight: .semibold, design: .serif))
-                    .frame(alignment: .top)
-                    .padding()
+                
                 
                 
                 HeaderView(items: $items, showSheet: false)
@@ -21,13 +19,9 @@ struct ContentView: View {
                 }
                 .onDelete { indexset in
                     items.remove(atOffsets: indexset)
+                }
             }
-            }
-            //        Button(action: , label: {
-            //            Image(systemName: "heart.text.clipboard")
-            //                .symbolRenderingMode(.multicolor)
         }
-//        })
         
     }
 }
