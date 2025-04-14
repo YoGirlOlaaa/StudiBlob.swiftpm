@@ -5,5 +5,7 @@ struct ContentView: View {
         VStack{
             
         }
+        VStack {
+            Text("Hi Karima")
     }
 }
