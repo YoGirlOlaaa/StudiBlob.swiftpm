@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AssignmentItem: Hashable{
+struct AssignmentItem: Hashable, Codable{
     var name : String
     var description: String
     var date: Date

@@ -9,6 +9,7 @@ struct ContentView: View {
             Color.blue
                 .opacity(0.3)
             VStack{
+
                 HeaderView(items: $items, showSheet: false)
                 ForEach(items, id: \.self){ CurrentItem in
                     ListView(currentItem: CurrentItem)
