@@ -24,6 +24,9 @@ class AssignmentStorage: ObservableObject {
             print("Failed to save assignments: \(error)")
         }
     }
-    
+    func loadAssignments() {
+        guard let decodedAssignments = try? JSONDecoder().decode([AssignmentItem].self, from: assignmentsData) else { return }
+                items = decodedAssignments
+    }
 }
 
