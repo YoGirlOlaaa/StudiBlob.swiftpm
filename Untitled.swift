@@ -16,4 +16,14 @@ class AssignmentStorage: ObservableObject {
     init(){
         loadAssignments()
     }
+    func saveAssignments(){
+        do {
+            let encoder = JSONEncoder()
+            assignmentsData = try encoder.encode(items)
+        } catch {
+            print("Failed to save assignments: \(error)")
+        }
+    }
+    
 }
+
