@@ -7,5 +7,6 @@
 import SwiftUI
 
 class AssignmentStorage: ObservableObject {
+    @AppStorage("assignments") var assignmentsData: Data = Data()
     
 }

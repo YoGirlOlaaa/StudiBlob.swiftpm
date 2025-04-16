@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State var items: [AssignmentItem] = []
+    @ObservedObject var storage = AssignmentStorage()
     
     var body: some View {
         //datepicker
