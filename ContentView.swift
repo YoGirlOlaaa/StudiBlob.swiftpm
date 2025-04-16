@@ -11,12 +11,12 @@ struct ContentView: View {
                 .opacity(0.3)
             VStack{
 
-                HeaderView(items: $items, showSheet: false)
-                ForEach(items, id: \.self){ CurrentItem in
+                HeaderView(items: $storage.items, showSheet: false)
+                ForEach(storage.items, id: \.self){ CurrentItem in
                     ListView(currentItem: CurrentItem)
                 }
-                .onDelete { indexset in
-                    items.remove(atOffsets: indexset)
+                .onDelete { indexSet in
+                    storage.items.remove(atOffsets: indexSet)
                 }
             }
         }
