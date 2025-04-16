@@ -8,9 +8,12 @@ import SwiftUI
 
 class AssignmentStorage: ObservableObject {
     @AppStorage("assignments") var assignmentsData: Data = Data()
-//    @Published var items: [AssignmentItem] = [] {
-//        didSet{
-//            saveAssignments()
-//        }
+    @Published var items: [AssignmentItem] = [] {
+        didSet{
+            saveAssignments()
+        }
+    }
+    init(){
+        loadAssignments()
     }
 }

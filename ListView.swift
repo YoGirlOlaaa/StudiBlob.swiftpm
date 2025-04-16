@@ -21,7 +21,7 @@ struct ListView: View{
                 Text("\(currentItem.name) ")
                     .bold()
                 Text("Due: \(currentItem.date, formatter: dateFormatter)")
-                //Text(": \(currentItem.date)")
+                
                 Text("\(currentItem.description)")
                 
             }
