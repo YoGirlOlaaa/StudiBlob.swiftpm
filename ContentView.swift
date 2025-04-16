@@ -9,7 +9,7 @@ struct ContentView: View {
         
         NavigationStack {
             VStack {
-              
+                
                 
                 ZStack{
                     Color.blue
@@ -22,15 +22,17 @@ struct ContentView: View {
                             .frame(alignment: .top)
                             .padding()
                         
-                        VStack{
-                            HeaderView(items: $items, showSheet: false)
-                            ForEach(items, id: \.self){ CurrentItem in
-                                ListView(currentItem: CurrentItem)
+                       
+                            VStack{
+                                
+                                HeaderView(items: $storage.items, showSheet: false)
+                                ForEach(storage.items, id: \.self){ CurrentItem in
+                                    ListView(currentItem: CurrentItem)
+                                }
+                                .onDelete { indexSet in
+                                    storage.items.remove(atOffsets: indexSet)
+                                }
                             }
-                            .onDelete { indexset in
-                                items.remove(atOffsets: indexset)
-                            }
-                        }
                     }
                 }
                 
@@ -43,21 +45,10 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
                 .padding()
-        ZStack{
-            Color.blue
-                .opacity(0.3)
-            VStack{
-
-                HeaderView(items: $storage.items, showSheet: false)
-                ForEach(storage.items, id: \.self){ CurrentItem in
-                    ListView(currentItem: CurrentItem)
-                }
-                .onDelete { indexSet in
-                    storage.items.remove(atOffsets: indexSet)
+                    
                 }
             }
             
         }
     }
-    
-}
+
