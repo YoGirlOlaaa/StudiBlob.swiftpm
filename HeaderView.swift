@@ -18,7 +18,7 @@ struct HeaderView: View {
     @State var showSheet1 = false
     
     var body: some View {
-        Text("\(selectedPoints)")
+        Text("\(totalPoints)")
         Button{
             showSheet.toggle()
         } label: {
@@ -33,7 +33,7 @@ struct HeaderView: View {
         }
         .sheet(isPresented: $showSheet){
             VStack{
-                Slider(value: $selectedPoints, in: 0...100, step: 1)
+                
                 Text("Add The New Assignment")
                     .font(.largeTitle)
                 Divider()
@@ -85,10 +85,11 @@ struct HeaderView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
+                Slider(value: $selectedPoints, in: 0...100, step: 1)
                 
                 
                 Button {
-                    let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate)
+                    let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
                     items.append(newItem)
                     newItemName = ""
                     newItemDescription = ""

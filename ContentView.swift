@@ -3,7 +3,7 @@ import SwiftUI
 struct ContentView: View {
     @State var items: [AssignmentItem] = []
     @ObservedObject var storage = AssignmentStorage()
-    
+    @Binding var totalPoints: Int
     var body: some View {
         //datepicker
         
@@ -29,9 +29,9 @@ struct ContentView: View {
                                 ForEach(storage.items, id: \.self){ CurrentItem in
                                     ListView(currentItem: CurrentItem)
                                 }
-                                .onDelete { indexSet in
-                                    storage.items.remove(atOffsets: indexSet)
-                                }
+                                .onDelete(perform: deleteAssignment)
+//
+//                                }
                             }
                     }
                 }
@@ -47,8 +47,19 @@ struct ContentView: View {
                 .padding()
                     
                 }
-            }
             
-        }
+            }
+       
+            }
+    func deleteAssignment(at offsets: IndexSet) {
+                       
+                       for index in offsets {
+                           totalPoints += storage.items[index].points
+                       }
+                       
+                       storage.items.remove(atOffsets: offsets)
+                   }
+    
     }
+
 
