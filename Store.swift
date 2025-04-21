@@ -19,7 +19,7 @@ struct Store: View {
                 .padding()
         }
         
-        .edgesIgnoringSafeArea(.all) // This ensures the page takes up the full screen
+        .edgesIgnoringSafeArea(.all) 
     }
 }
 #Preview {

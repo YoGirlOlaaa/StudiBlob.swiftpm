@@ -13,7 +13,7 @@ struct ContentView: View {
                 
                 ZStack{
                     Color.blue
-                     //   .opacity(0.3)
+                        .opacity(0.3)
                     VStack{
                         
                         
