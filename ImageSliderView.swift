@@ -8,7 +8,7 @@ import SwiftUI
 
 struct ImageSliderView: View {
   
-    let images = ["Image1", "Image2", "Image3", "image4"]
+    let images = ["Image1", "Image2", "Image3", "Image4"]
     
     @State private var currentIndex: Double = 0
     
@@ -20,7 +20,7 @@ struct ImageSliderView: View {
                     Image(images[index])
                         .resizable()
                         .scaledToFit()
-                        .frame(width: UIScreen.main.bounds.width, height: 300)
+                        .frame(width: UIScreen.main.bounds.width, height: 180)
                         .tag(Double(index))                         .cornerRadius(10)
                         .shadow(radius: 10)
                 }
@@ -28,7 +28,7 @@ struct ImageSliderView: View {
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
          
             Slider(value: $currentIndex, in: 0...(Double(images.count - 1)), step: 1)
-                .padding()
+                
                 .accentColor(.cyan)
             
             
@@ -37,5 +37,6 @@ struct ImageSliderView: View {
                 .padding()
         }
         .padding()
+        
     }
 }

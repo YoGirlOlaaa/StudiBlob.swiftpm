@@ -23,7 +23,8 @@ struct Store: View {
                 ImageSliderView()
                     .padding()
             
-            
+               ImageSliderView2()
+                .padding()
         }
         
         .edgesIgnoringSafeArea(.all) 
