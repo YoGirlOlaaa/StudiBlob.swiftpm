@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct Store: View {
+    let images = ["image1", "image2", "image3", "image4"]
+    
     var body: some View {
         VStack {
             Text("This is the full screen page")
@@ -17,9 +19,15 @@ struct Store: View {
             Text("Store").font(.system(size: 35, weight: .semibold, design: .serif))
                 .frame(alignment: .top)
                 .padding()
+            
+                ImageSliderView()
+                    .padding()
+            
+               ImageSliderView2()
+                .padding()
         }
         
-        .edgesIgnoringSafeArea(.all) // This ensures the page takes up the full screen
+        .edgesIgnoringSafeArea(.all) 
     }
 }
 #Preview {

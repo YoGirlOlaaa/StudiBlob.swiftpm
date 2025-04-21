@@ -91,6 +91,7 @@ struct HeaderView: View {
                 Button {
                     let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
                     items.append(newItem)
+                    items.sort { $0.date < $1.date }
                     newItemName = ""
                     newItemDescription = ""
                      newDueDate = Date()
