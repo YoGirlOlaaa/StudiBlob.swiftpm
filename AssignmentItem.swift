@@ -11,5 +11,6 @@ struct AssignmentItem: Hashable, Codable{
     var name : String
     var description: String
     var date: Date
+    
     var id = UUID()
 }
