@@ -12,11 +12,13 @@ struct HeaderView: View {
     @State var newItemName: String = ""
     @State var newItemDescription: String = ""
     @State var newDueDate = Date()
-    
+    @State var selectedPoints: Double = 50.0
+    @State var totalPoints = 0
     @State var showSheet: Bool
     @State var showSheet1 = false
     
     var body: some View {
+        Text("\(selectedPoints)")
         Button{
             showSheet.toggle()
         } label: {
@@ -31,7 +33,7 @@ struct HeaderView: View {
         }
         .sheet(isPresented: $showSheet){
             VStack{
-                
+                Slider(value: $selectedPoints, in: 0...100, step: 1)
                 Text("Add The New Assignment")
                     .font(.largeTitle)
                 Divider()

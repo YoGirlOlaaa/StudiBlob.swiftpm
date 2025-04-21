@@ -18,7 +18,8 @@ struct ContentView: View {
                         
                         
                         
-                        Text("StudiBlob").font(.system(size: 35, weight: .semibold, design: .serif))
+                        Text("StudiBlob")
+                            .font(.system(size: 35, weight: .semibold, design: .serif))
                             .frame(alignment: .top)
                             .padding()
                         
