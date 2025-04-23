@@ -32,86 +32,96 @@ struct HeaderView: View {
             }
         }
         .sheet(isPresented: $showSheet){
-           
-                VStack{
-                    
-                    Text("Add The New Assignment")
-                        .font(.largeTitle)
-                    Divider()
+            VStack{
+                
+                Text("Add The New Assignment")
+                    .font(.largeTitle)
+                Divider()
+                    .padding()
+                
+                VStack {
+                    Text("Due: \(newDueDate, formatter: dateFormatter)")
                         .padding()
                     
-                    VStack {
-                        Text("Due: \(newDueDate, formatter: dateFormatter)")
+                    Button("Change due date") {
+                        showSheet1.toggle()
+                    }
+                    .padding()
+                     .foregroundStyle(.blue)
+                    
+                    
+                    
+                    .sheet(isPresented: $showSheet1) {
+                        VStack {
+                            
+                            DatePicker(
+                                "Select Date and Time",
+                                selection: $newDueDate,
+                                displayedComponents: [.date, .hourAndMinute]
+                            )
+                            .datePickerStyle(.graphical)
                             .padding()
-                        
-                        Button("Change due date") {
-                            showSheet1.toggle()
-                        }
-                        .padding()
-                        .foregroundStyle(.blue)
-                        
-                        
-                        
-                        .sheet(isPresented: $showSheet1) {
-                            VStack {
+                             .foregroundStyle(.blue)
+                            
+                            Button("Done") {
+                                showSheet1.toggle()
                                 
-                                DatePicker(
-                                    "Select Date and Time",
-                                    selection: $newDueDate,
-                                    displayedComponents: [.date, .hourAndMinute]
-                                )
-                                .datePickerStyle(.graphical)
-                                .padding()
-                                .foregroundStyle(.blue)
-                                
-                                Button("Done") {
-                                    showSheet1.toggle()
-                                    
-                                }
-                                .padding()
-                                .foregroundStyle(.blue)
                             }
-                            .presentationDetents([.medium, .large])
+                            .padding()
+                             .foregroundStyle(.blue)
                         }
+                        .presentationDetents([.medium, .large])
                     }
-                    
-                    VStack{
-                        Text("Assignment Name")
-                        TextField("Assignment name", text: $newItemName)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                
+                VStack{
+                    Text("Assignment Name")
+                    TextField("Assignment name", text: $newItemName)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                VStack{
+                    Text("Assignment description")
+                    TextField("Assignment description", text: $newItemDescription)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                }
+                
+                Slider(value: $selectedPoints, in: 0...100, step: 1)
+                
+                
+                Button {
+                    defaultName()
+                    let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
+                    items.append(newItem)
+                    items.sort { $0.date < $1.date }
+                    newItemName = ""
+                    newItemDescription = ""
+                     newDueDate = Date()
+                    showSheet.toggle()
+                } label: {
+                    ZStack{
+                        Capsule()
+                            .frame(width: 500, height: 50)
+                        Text("Complete Finish Assignment")
+                            .foregroundStyle(.black)
                     }
-                    VStack{
-                        Text("Assignment description")
-                        TextField("Assignment description", text: $newItemDescription)
-                            .textFieldStyle(RoundedBorderTextFieldStyle())
-                    }
-                    
-                    Slider(value: $selectedPoints, in: 0...100, step: 1)
-                    
-                    
-                    Button {
-                        let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
-                        items.append(newItem)
-                        items.sort { $0.date < $1.date }
-                        newItemName = ""
-                        newItemDescription = ""
-                        newDueDate = Date()
-                        showSheet.toggle()
-                    } label: {
-                        ZStack{
-                            Capsule()
-                                .frame(width: 50, height: 50)
-                            Text("Complete Finish Assignment")
-                                .foregroundStyle(.black)
-                        }
-                    }
-                    
+                }
+                
                 
                 
             }
         }
     }
-}
+    func defaultName() {
+        if newItemName == ""{
+            newItemName = "No Assignment Name"
+        }
+        if newItemDescription == ""{
+            newItemDescription = "No Description"
+        }
+        
+    }
+    }
+
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium
