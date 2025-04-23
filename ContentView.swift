@@ -24,7 +24,7 @@ struct ContentView: View {
                             .frame(alignment: .top)
                             .padding()
                         
-                        
+
                         VStack{
                             
                             HeaderView(items: $storage.items, showSheet: false)
@@ -35,7 +35,9 @@ struct ContentView: View {
                                 .onDelete{ indexSet in storage.items.remove(atOffsets: indexSet)
                                     totalPoints += Int(selectedPoints)
                                 }
-                                
+                                    
+                                Image("Blober")
+                                    .frame(alignment: .center)
                             }
                         }
                     }
@@ -56,15 +58,3 @@ struct ContentView: View {
         }
     }
             }
-//    func deleteAssignment(at offsets: IndexSet) {
-//                       
-//                       for index in offsets {
-//                           totalPoints += storage.items[index].points
-//                       }
-//                       
-//                       storage.items.remove(atOffsets: offsets)
-//                   }
-//    
-//    }
-
-

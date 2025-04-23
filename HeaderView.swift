@@ -19,7 +19,7 @@ struct HeaderView: View {
     @State var showSheet1 = false
     
     var body: some View {
-        Text("\(totalPoints)")
+        
         Button{
             showSheet.toggle()
         } label: {
@@ -90,6 +90,7 @@ struct HeaderView: View {
                 
                 
                 Button {
+                    defaultName()
                     let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
                     items.append(newItem)
                     items.sort { $0.date < $1.date }
@@ -99,8 +100,12 @@ struct HeaderView: View {
                      newDueDate = Date()
                     showSheet.toggle()
                 } label: {
-                    Image(systemName: "plus.diamond")
-                     .foregroundStyle(.blue)
+                    ZStack{
+                        Capsule()
+                            .frame(width: 500, height: 50)
+                        Text("Complete Finish Assignment")
+                            .foregroundStyle(.black)
+                    }
                 }
                 
                 
@@ -108,7 +113,17 @@ struct HeaderView: View {
             }
         }
     }
-}
+    func defaultName() {
+        if newItemName == ""{
+            newItemName = "No Assignment Name"
+        }
+        if newItemDescription == ""{
+            newItemDescription = "No Description"
+        }
+        
+    }
+    }
+
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium
