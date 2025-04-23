@@ -18,7 +18,7 @@ struct HeaderView: View {
     @State var showSheet1 = false
     
     var body: some View {
-        Text("\(totalPoints)")
+        
         Button{
             showSheet.toggle()
         } label: {
@@ -97,8 +97,12 @@ struct HeaderView: View {
                      newDueDate = Date()
                     showSheet.toggle()
                 } label: {
-                    Image(systemName: "plus.diamond")
-                     .foregroundStyle(.blue)
+                    ZStack{
+                        Capsule()
+                            .frame(width: 500, height: 50)
+                        Text("Complete Finish Assignment")
+                            .foregroundStyle(.black)
+                    }
                 }
                 
                 
