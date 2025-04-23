@@ -4,6 +4,7 @@ struct ContentView: View {
     @State var items: [AssignmentItem] = []
     @ObservedObject var storage = AssignmentStorage()
     @Binding var totalPoints: Int
+    
     var body: some View {
         //datepicker
         

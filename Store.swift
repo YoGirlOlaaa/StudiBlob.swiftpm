@@ -8,27 +8,30 @@
 import SwiftUI
 
 struct Store: View {
-    let images = ["image1", "image2", "image3", "image4"]
+    @StateObject var viewModel = CharacterViewModel()
     
     var body: some View {
-        VStack {
-            Text("This is the full screen page")
+        VStack(alignment: .center, spacing: 20) {
+            Text("Store")
                 .font(.largeTitle)
-                .foregroundColor(.white)
-            
-            Text("Store").font(.system(size: 35, weight: .semibold, design: .serif))
+                .bold()
                 .frame(alignment: .top)
-                .padding()
             
-                ImageSliderView()
-                    .padding()
-            
-               ImageSliderView2()
-                .padding()
+            VStack(alignment: .trailing){
+                Text("Points: \(viewModel.gold) ")
+                    .font(.headline)
+                    .padding(.horizontal)
+                
+                
+                
+                AssistStoreSliderView(viewModel: viewModel)
+                
+                
+                Spacer()
+            }
         }
-        
-        .edgesIgnoringSafeArea(.all) 
     }
+    
 }
 #Preview {
     Store()
