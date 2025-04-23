@@ -101,7 +101,7 @@ struct HeaderView: View {
                     ZStack{
                         Capsule()
                             .frame(width: 500, height: 50)
-                        Text("Complete Finish Assignment")
+                        Text("Complete Creating Assignment")
                             .foregroundStyle(.black)
                     }
                 }
