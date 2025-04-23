@@ -13,7 +13,8 @@ struct HeaderView: View {
     @State var newItemDescription: String = ""
     @State var newDueDate = Date()
     @State var selectedPoints: Double = 50.0
-    @State var totalPoints = 0
+//    @State var totalPoints = 0
+    @AppStorage("totalPoints") var totalPoints: Int = 0
     @State var showSheet: Bool
     @State var showSheet1 = false
     
@@ -92,6 +93,7 @@ struct HeaderView: View {
                     let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
                     items.append(newItem)
                     items.sort { $0.date < $1.date }
+//                    totalPoints += Int(selectedPoints)
                     newItemName = ""
                     newItemDescription = ""
                      newDueDate = Date()

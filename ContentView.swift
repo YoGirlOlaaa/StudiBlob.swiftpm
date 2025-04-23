@@ -3,8 +3,9 @@ import SwiftUI
 struct ContentView: View {
     @State var items: [AssignmentItem] = []
     @ObservedObject var storage = AssignmentStorage()
-    @Binding var totalPoints: Int
-    
+    @State var selectedPoints: Double = 50.0
+//    @Binding var totalPoints: Int
+    @AppStorage("totalPoints") var totalPoints: Int = 0
     var body: some View {
         
         
@@ -32,6 +33,7 @@ struct ContentView: View {
                                     ListView(currentItem: currentItem)
                                 }
                                 .onDelete{ indexSet in storage.items.remove(atOffsets: indexSet)
+                                    totalPoints += Int(selectedPoints)
                                 }
                                 
                             }
