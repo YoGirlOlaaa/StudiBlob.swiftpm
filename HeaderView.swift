@@ -89,6 +89,7 @@ struct HeaderView: View {
                 
                 
                 Button {
+                    defaultName()
                     let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
                     items.append(newItem)
                     items.sort { $0.date < $1.date }
@@ -110,7 +111,17 @@ struct HeaderView: View {
             }
         }
     }
-}
+    func defaultName() {
+        if newItemName == ""{
+            newItemName = "No Assignment Name"
+        }
+        if newItemDescription == ""{
+            newItemDescription = "No Description"
+        }
+        
+    }
+    }
+
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .medium
