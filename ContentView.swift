@@ -56,15 +56,3 @@ struct ContentView: View {
         }
     }
             }
-//    func deleteAssignment(at offsets: IndexSet) {
-//                       
-//                       for index in offsets {
-//                           totalPoints += storage.items[index].points
-//                       }
-//                       
-//                       storage.items.remove(atOffsets: offsets)
-//                   }
-//    
-//    }
-
-
