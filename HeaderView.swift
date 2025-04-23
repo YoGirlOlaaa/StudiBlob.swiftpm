@@ -86,8 +86,8 @@ struct HeaderView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
-                Slider(value: $selectedPoints, in: 0...100, step: 1)
-                
+                Slider(value: $selectedPoints, in: 0...20, step: 1)
+                Text(String(format: "Your assignment is worth %.0f points", selectedPoints))
                 
                 Button {
                     defaultName()
