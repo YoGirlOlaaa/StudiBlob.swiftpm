@@ -5,7 +5,7 @@ struct ContentView: View {
     @ObservedObject var storage = AssignmentStorage()
     @Binding var totalPoints: Int
     var body: some View {
-        //datepicker
+        
         
         NavigationStack {
             VStack {
@@ -36,7 +36,7 @@ struct ContentView: View {
                     }
                 }
                 
-                // NavigationLink to push to the new screen
+               
                 NavigationLink(destination: Store()) {
                     Text("Go to the Store")
                         .padding()
