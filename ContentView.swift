@@ -22,21 +22,23 @@ struct ContentView: View {
                             .frame(alignment: .top)
                             .padding()
                         
-                       
-                            VStack{
-                                
-                                HeaderView(items: $storage.items, showSheet: false)
-                                ForEach(storage.items, id: \.self){ CurrentItem in
-                                    ListView(currentItem: CurrentItem)
+                        
+                        VStack{
+                            
+                            HeaderView(items: $storage.items, showSheet: false)
+                            List{
+                                ForEach(storage.items, id: \.self){ currentItem in
+                                    ListView(currentItem: currentItem)
                                 }
-                                .onDelete(perform: deleteAssignment)
-//
-//                                }
+                                .onDelete{ indexSet in storage.items.remove(atOffsets: indexSet)
+                                }
+                                
                             }
+                        }
                     }
                 }
                 
-               
+                
                 NavigationLink(destination: Store()) {
                     Text("Go to the Store")
                         .padding()
@@ -45,21 +47,21 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
                 .padding()
-                    
-                }
+                
+            }
             
-            }
-       
-            }
-    func deleteAssignment(at offsets: IndexSet) {
-                       
-                       for index in offsets {
-                           totalPoints += storage.items[index].points
-                       }
-                       
-                       storage.items.remove(atOffsets: offsets)
-                   }
-    
+        }
     }
+            }
+//    func deleteAssignment(at offsets: IndexSet) {
+//                       
+//                       for index in offsets {
+//                           totalPoints += storage.items[index].points
+//                       }
+//                       
+//                       storage.items.remove(atOffsets: offsets)
+//                   }
+//    
+//    }
 
 
