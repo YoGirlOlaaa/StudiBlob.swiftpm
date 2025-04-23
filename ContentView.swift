@@ -23,7 +23,7 @@ struct ContentView: View {
                             .frame(alignment: .top)
                             .padding()
                         
-                        
+
                         VStack{
                             
                             HeaderView(items: $storage.items, showSheet: false)
@@ -33,7 +33,9 @@ struct ContentView: View {
                                 }
                                 .onDelete{ indexSet in storage.items.remove(atOffsets: indexSet)
                                 }
-                                
+                                    
+                                Image("Blober")
+
                             }
                         }
                     }
