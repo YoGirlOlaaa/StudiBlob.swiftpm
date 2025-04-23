@@ -35,7 +35,7 @@ struct ContentView: View {
                                 }
                                     
                                 Image("Blober")
-
+                                    .frame(alignment: .center)
                             }
                         }
                     }
