@@ -23,12 +23,18 @@ struct HeaderView: View {
         Button{
             showSheet.toggle()
         } label: {
-            HStack{
-                Text("Add An Assignment")
-                    .font(.largeTitle)
+            ZStack{
+                Capsule()
+                    .frame(width: 500, height: 55)
                     .foregroundStyle(.blue)
-                Image(systemName: "plus.diamond")
-                 .foregroundStyle(.blue)
+            HStack{
+                
+                    Text("Add An Assignment")
+                    .font(.system(size: 40, weight: .semibold, design: .serif))
+                        .foregroundStyle(.white)
+                    Image(systemName: "plus.diamond")
+                        .foregroundStyle(.white)
+                }
                 
             }
         }
