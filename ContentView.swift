@@ -25,7 +25,7 @@ struct ContentView: View {
                         
 
                         VStack{
-                            
+                            //fix. binding issue
                             HeaderView(items: $storage.items, showSheet: false)
                             List{
                                 ForEach(storage.items, id: \.self){ currentItem in

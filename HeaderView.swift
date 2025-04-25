@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var items: [AssignmentItem]
+    @Binding var items: [AssignmentItem] 
+    @State var itemCount = 1
     @State var newItemName: String = ""
     @State var newItemDescription: String = ""
     @State var newDueDate = Date()
@@ -91,6 +92,7 @@ struct HeaderView: View {
                 Button {
                     defaultName()
                     let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
+                    itemCount += 1
                     items.append(newItem)
                     items.sort { $0.date < $1.date }
                     newItemName = ""
@@ -103,6 +105,7 @@ struct HeaderView: View {
                             .frame(width: 500, height: 50)
                         Text("Complete Finish Assignment")
                             .foregroundStyle(.black)
+                            
                     }
                 }
                 

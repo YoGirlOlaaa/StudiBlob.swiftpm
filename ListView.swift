@@ -12,10 +12,7 @@ struct ListView: View{
     var body: some View{
         ZStack{
             
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(.gray)
-                    .frame(width: 500, height: 200)
-                    .opacity(0.1)
+            
                 
             VStack{
                 Text("\(currentItem.name) ")
@@ -28,4 +25,8 @@ struct ListView: View{
         }
         .font(.largeTitle)
     }
+}
+
+#Preview {
+    ListView(currentItem: AssignmentItem(name: "testing", description: "testing", date: Date(), points: 47))
 }
