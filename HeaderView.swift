@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var items: [AssignmentItem]
+    @Binding var items: [AssignmentItem] 
+    @State var itemCount = 1
     @State var newItemName: String = ""
     @State var newItemDescription: String = ""
     @State var newDueDate = Date()
@@ -23,12 +24,18 @@ struct HeaderView: View {
         Button{
             showSheet.toggle()
         } label: {
-            HStack{
-                Text("Add An Assignment")
-                    .font(.largeTitle)
+            ZStack{
+                Capsule()
+                    .frame(width: 500, height: 55)
                     .foregroundStyle(.blue)
-                Image(systemName: "plus.diamond")
-                 .foregroundStyle(.blue)
+            HStack{
+                
+                    Text("Add An Assignment")
+                    .font(.system(size: 40, weight: .semibold, design: .serif))
+                        .foregroundStyle(.white)
+                    Image(systemName: "plus.diamond")
+                        .foregroundStyle(.white)
+                }
                 
             }
         }
@@ -86,12 +93,13 @@ struct HeaderView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
-                Slider(value: $selectedPoints, in: 0...100, step: 1)
-                
+                Slider(value: $selectedPoints, in: 0...20, step: 1)
+                Text(String(format: "Your assignment is worth %.0f points", selectedPoints))
                 
                 Button {
                     defaultName()
                     let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
+                    itemCount += 1
                     items.append(newItem)
                     items.sort { $0.date < $1.date }
 //                    totalPoints += Int(selectedPoints)
@@ -105,6 +113,7 @@ struct HeaderView: View {
                             .frame(width: 500, height: 50)
                         Text("Complete Creating Assignment")
                             .foregroundStyle(.black)
+                            
                     }
                 }
                 

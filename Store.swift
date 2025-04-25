@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Store: View {
     @StateObject var viewModel = CharacterViewModel()
-    
+    @AppStorage("totalPoints") var totalPoints: Int = 0
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
             Text("Store")
@@ -18,11 +18,14 @@ struct Store: View {
                 .frame(alignment: .top)
             
             VStack(alignment: .trailing){
-                Text("Points: \(viewModel.gold) ")
+                Text("Points: \(totalPoints) ")
                     .font(.headline)
                     .padding(.horizontal)
                 
-                
+                if let bought = viewModel.lastPurchasedAssistName{
+                    Text("You bought: \(bought)")
+                        .foregroundColor(.black)
+                }
                 
                 AssistStoreSliderView(viewModel: viewModel)
                 
@@ -36,3 +39,4 @@ struct Store: View {
 #Preview {
     Store()
 }
+
