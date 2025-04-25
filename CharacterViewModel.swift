@@ -9,18 +9,20 @@
 import SwiftUI
 
 class CharacterViewModel: ObservableObject {
+    @AppStorage("totalPoints") var totalPoints: Int = 0
     
     @Published var lastPurchasedAssistName: String? = nil
     @Published var gold: Int = 100
     @Published var ownedAssists: [Assist] = []
     
     func buy(_ assist: Assist) {
-        guard !ownedAssists.contains(assist), gold >= assist.cost else { return }
-        gold -= assist.cost
-        ownedAssists.append(assist)
+        guard totalPoints >= assist.cost else {return}
+        totalPoints -= assist.cost
+
+                ownedAssists.append(assist)
         lastPurchasedAssistName = assist.name
     }
-    
+     
     func hasAssist(_ assist: Assist) -> Bool {
         return ownedAssists.contains(assist)
     }
