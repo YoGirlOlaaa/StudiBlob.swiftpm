@@ -14,7 +14,8 @@ struct HeaderView: View {
     @State var newItemDescription: String = ""
     @State var newDueDate = Date()
     @State var selectedPoints: Double = 50.0
-    @State var totalPoints = 0
+//    @State var totalPoints = 0
+    @AppStorage("totalPoints") var totalPoints: Int = 0
     @State var showSheet: Bool
     @State var showSheet1 = false
     
@@ -86,8 +87,8 @@ struct HeaderView: View {
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
-                Slider(value: $selectedPoints, in: 0...100, step: 1)
-                
+                Slider(value: $selectedPoints, in: 0...20, step: 1)
+                Text(String(format: "Your assignment is worth %.0f points", selectedPoints))
                 
                 Button {
                     defaultName()
@@ -95,6 +96,7 @@ struct HeaderView: View {
                     itemCount += 1
                     items.append(newItem)
                     items.sort { $0.date < $1.date }
+//                    totalPoints += Int(selectedPoints)
                     newItemName = ""
                     newItemDescription = ""
                      newDueDate = Date()
@@ -103,7 +105,7 @@ struct HeaderView: View {
                     ZStack{
                         Capsule()
                             .frame(width: 500, height: 50)
-                        Text("Complete Finish Assignment")
+                        Text("Complete Creating Assignment")
                             .foregroundStyle(.black)
                             
                     }
