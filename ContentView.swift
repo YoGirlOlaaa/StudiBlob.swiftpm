@@ -10,6 +10,7 @@ struct ContentView: View {
         
         
         NavigationStack {
+            
             VStack {
                 
                 
@@ -24,7 +25,7 @@ struct ContentView: View {
                             .frame(alignment: .top)
                             .padding()
                         
-
+                       
                         VStack{
                             
                             HeaderView(items: $storage.items, showSheet: false)

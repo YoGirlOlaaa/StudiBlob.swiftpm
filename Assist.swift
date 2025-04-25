@@ -11,5 +11,6 @@ struct Assist: Identifiable, Equatable {
     let name: String
     let iconName: String
     let cost: Int
+    let category: String
 }
 

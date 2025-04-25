@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AssistCardView: View {
     let assist: Assist
+//    let assist1: Assist
     @ObservedObject var viewModel: CharacterViewModel
     
     var body: some View {
