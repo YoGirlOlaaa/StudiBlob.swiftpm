@@ -22,7 +22,10 @@ struct Store: View {
                     .font(.headline)
                     .padding(.horizontal)
                 
-                
+                if let bought = viewModel.lastPurchasedAssistName{
+                    Text("You bought: \(bought)")
+                        .foregroundColor(.black)
+                }
                 
                 AssistStoreSliderView(viewModel: viewModel)
                 
@@ -36,3 +39,4 @@ struct Store: View {
 #Preview {
     Store()
 }
+
