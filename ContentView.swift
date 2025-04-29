@@ -20,12 +20,12 @@ struct ContentView: View {
                     VStack{
                         
                         
-                        
-                        Text("StudiBlob").font(.system(size: 55, weight: .semibold, design: .serif))
-                            .frame(alignment: .top)
-                            .padding()
-                        
-                       
+                        HStack{
+                            Text("StudiBlob").font(.system(size: 55, weight: .semibold, design: .serif))
+                                .frame(alignment: .top)
+                                .padding()
+                            Image("Blober")
+                        }
                         VStack{
                             //fix. binding issue
                             HeaderView(items: $storage.items, showSheet: false)
@@ -38,8 +38,12 @@ struct ContentView: View {
                                 }
                                     
                                 Image("Blober")
-                                    .frame(alignment: .center)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 9000, height: 800)
+                                    Spacer()
                             }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
                     }
                 }
