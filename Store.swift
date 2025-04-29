@@ -22,9 +22,20 @@ struct Store: View {
                     .font(.headline)
                     .padding(.horizontal)
                 
-                if let bought = viewModel.lastPurchasedAssistName{
-                    Text("You bought: \(bought)")
-                        .foregroundColor(.black)
+                if !viewModel.ownedAssists.isEmpty {
+                    ScrollView{
+                        VStack(alignment: .leading, spacing: 5){
+                            Text("You bought:")
+                                .font(.headline)
+                            
+                            ForEach(viewModel.ownedAssists, id: \.id){ assist in
+                                Text("- \(assist.name)")
+                                    .font(.subheadline)
+                                    .foregroundColor(.black)
+                            }
+                        }
+                    }
+                    .frame(height: 150)
                 }
                 
                 AssistStoreSliderView(viewModel: viewModel)
