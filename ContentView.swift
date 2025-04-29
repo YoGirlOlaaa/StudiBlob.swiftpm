@@ -38,8 +38,12 @@ struct ContentView: View {
                                 }
                                     
                                 Image("Blober")
-                                    .frame(alignment: .center)
+                                    .resizable()
+                                    .scaledToFit()
+                                    .frame(width: 9000, height: 800)
+                                    Spacer()
                             }
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
                     }
                 }
