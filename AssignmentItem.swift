@@ -8,21 +8,19 @@
 import SwiftUI
 import SwiftData
 
-
 @Model
-class AssignmentItem/*: Hashable, Codable*/{
-    var name : String
-    var descriptionn: String
-    var date: Date
-    var points: Int
-    var id = UUID()
-    
+class AssignmentItem {
+    @Attribute var id: UUID
+    @Attribute var name: String
+    @Attribute var descriptionn: String
+    @Attribute var date: Date
+    @Attribute var totalPoints: Int
     
     init(name: String, description: String, date: Date, points: Int, id: UUID = UUID()) {
         self.name = name
         self.descriptionn = description
         self.date = date
-        self.points = points
+        self.totalPoints = points
         self.id = id
     }
 }

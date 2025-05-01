@@ -25,7 +25,7 @@ struct ListView: View{
                 Text("Due: \(currentItem.date, formatter: dateFormatter)")
                     .offset(y: -60)
                     .font(.system(size: 25, weight: .semibold))
-                Text("\(currentItem.description)")
+                Text("\(currentItem.descriptionn)")
                     .font(.system(size: 30))
                     .offset(y: -60)
                     .frame(width: 350)

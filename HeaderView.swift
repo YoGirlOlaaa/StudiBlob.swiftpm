@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct HeaderView: View {
-    @Binding var items: [AssignmentItem] 
+    @Environment(\.modelContext) var context
+    @Binding var items: [AssignmentItem]
     @State var itemCount = 1
     @State var newItemName: String = ""
     @State var newItemDescription: String = ""

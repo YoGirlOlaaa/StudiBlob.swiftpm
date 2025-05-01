@@ -1,8 +1,9 @@
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var context
-    @Query var items: [AssignmentItem] = []
+    @State var items: [AssignmentItem] = []
     @State var selectedPoints: Double = 50.0
 //    @Binding var totalPoints: Int
     @AppStorage("totalPoints") var totalPoints: Int = 0
@@ -27,13 +28,12 @@ struct ContentView: View {
                             Image("Blober")
                         }
                         VStack{
-                            //fix. binding issue
-                            HeaderView(items: $storage.items, showSheet: false)
+                            HeaderView(items: $items, showSheet: false)
                             List{
-                                ForEach(storage.items, id: \.self){ currentItem in
+                                ForEach(items, id: \.self){ currentItem in
                                     ListView(currentItem: currentItem)
                                 }
-                                .onDelete{ indexSet in storage.items.remove(atOffsets: indexSet)
+                                .onDelete{ indexSet in items.remove(atOffsets: indexSet)
                                     totalPoints += Int(selectedPoints)
                                 }
                                     
