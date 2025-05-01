@@ -25,6 +25,7 @@ struct ContentView: View {
                                 .frame(alignment: .top)
                                 .padding()
                             Image("Blober")
+                            
                         }
                         VStack{
                             //fix. binding issue

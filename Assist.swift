@@ -15,3 +15,4 @@ struct Assist: Identifiable, Equatable {
     let picture: String
 }
 
+//store-categories card icon view

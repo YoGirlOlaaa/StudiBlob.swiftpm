@@ -8,7 +8,7 @@ import SwiftUI
 
 struct AssistStoreSliderView: View {
     @ObservedObject var viewModel: CharacterViewModel
-    
+    //a list of assist item with name,iconname,cost,category, and picture
     let assists = [
         Assist(name: "Red Hat", iconName: "hat.fill", cost: 30, category: "Hats", picture: "hat.widebrim.fill"),
         Assist(name: "Flower Hat", iconName: "hat.fill", cost: 30, category: "Hats", picture: "hat.widebrim.fill"),
@@ -22,7 +22,7 @@ struct AssistStoreSliderView: View {
         Assist(name: "Pink Pants", iconName: "jeans.walk", cost: 35, category: "Pants", picture: "figure.socialdance"),
         Assist(name: "Black Pants", iconName: "jeans.walk", cost: 50, category: "Pants", picture: "figure.socialdance")
     ]
-    
+   
     var groupedAssists: [String: [Assist]] {
         Dictionary(grouping: assists, by: { $0.category})
     }

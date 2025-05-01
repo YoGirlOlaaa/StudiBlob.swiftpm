@@ -14,3 +14,4 @@ struct AssignmentItem: Hashable, Codable{
     var points: Int
     var id = UUID()
 }
+// assignment icon
