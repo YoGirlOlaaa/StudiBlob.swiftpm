@@ -40,3 +40,4 @@ struct ListView: View{
     ListView(currentItem: AssignmentItem(name: "Testing", description: "testinghfofsorffugpods8iurhfuhirufhrhgshgutfpo8dhrpgudwo", date: Date(), points: 47))
 }
 
+// current item represents a single item (aka assignmentItem) that shows what you want to display in list view.It holds details like the name, description, due date, and points for the assignment.
