@@ -38,3 +38,4 @@ struct ListView: View{
 #Preview {
     ListView(currentItem: AssignmentItem(name: "Testing", description: "testinghfofsorffugpods8iurhfuhirufhrhgshgutfpo8dhrpgudwo", date: Date(), points: 47))
 }
+// 

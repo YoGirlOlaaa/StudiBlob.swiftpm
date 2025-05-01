@@ -50,4 +50,4 @@ struct Store: View {
 #Preview {
     Store()
 }
-
+// store view displays how points are counted, how many points the user has, and what the user has purchased.
