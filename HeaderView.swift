@@ -3,7 +3,7 @@
 //  AppShowCase.swiftpm
 //
 //  Created by Aleksandra J. Oleksiak on 4/14/25.
-//
+// code to add an assignment with description, and date
 
 import SwiftUI
 
@@ -14,7 +14,6 @@ struct HeaderView: View {
     @State var newItemDescription: String = ""
     @State var newDueDate = Date()
     @State var selectedPoints: Double = 50.0
-//    @State var totalPoints = 0
     @AppStorage("totalPoints") var totalPoints: Int = 0
     @State var showSheet: Bool
     @State var showSheet1 = false
@@ -102,7 +101,6 @@ struct HeaderView: View {
                     itemCount += 1
                     items.append(newItem)
                     items.sort { $0.date < $1.date }
-//                    totalPoints += Int(selectedPoints)
                     newItemName = ""
                     newItemDescription = ""
                      newDueDate = Date()

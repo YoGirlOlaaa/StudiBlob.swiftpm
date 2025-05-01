@@ -4,10 +4,9 @@ struct ContentView: View {
     @State var items: [AssignmentItem] = []
     @ObservedObject var storage = AssignmentStorage()
     @State var selectedPoints: Double = 50.0
-//    @Binding var totalPoints: Int
     @AppStorage("totalPoints") var totalPoints: Int = 0
     var body: some View {
-        
+        //StudiBlob backround
         
         NavigationStack {
             
@@ -28,7 +27,7 @@ struct ContentView: View {
                             
                         }
                         VStack{
-                            //fix. binding issue
+                            //if you delete an assignment, you will get points
                             HeaderView(items: $storage.items, showSheet: false)
                             List{
                                 ForEach(storage.items, id: \.self){ currentItem in
@@ -49,7 +48,7 @@ struct ContentView: View {
                     }
                 }
                 
-                
+                //button to go to the store
                 NavigationLink(destination: Store()) {
                     Text("Go to the Store")
                         .padding()
