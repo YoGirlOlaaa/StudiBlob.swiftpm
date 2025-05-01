@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var items: [AssignmentItem] = []
-    @ObservedObject var storage = AssignmentStorage()
+    @Environment(\.modelContext) var context
+    @Query var items: [AssignmentItem] = []
     @State var selectedPoints: Double = 50.0
 //    @Binding var totalPoints: Int
     @AppStorage("totalPoints") var totalPoints: Int = 0

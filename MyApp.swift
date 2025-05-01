@@ -7,7 +7,7 @@ struct MyApp: App {
         WindowGroup {
 //            ContentView(totalPoints: $totalPoints)
             ContentView()
-           
+                .modelContainer(for: AssignmentItem.self)
         }
     }
 }
