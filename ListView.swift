@@ -4,6 +4,7 @@
 //
 //  Created by Aleksandra J. Oleksiak on 4/14/25.
 //
+// creation of list view that shows how the user is able to add their assignment name, a description, and a date.
 
 import SwiftUI
 
@@ -38,4 +39,4 @@ struct ListView: View{
 #Preview {
     ListView(currentItem: AssignmentItem(name: "Testing", description: "testinghfofsorffugpods8iurhfuhirufhrhgshgutfpo8dhrpgudwo", date: Date(), points: 47))
 }
-// 
+

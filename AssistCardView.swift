@@ -27,7 +27,7 @@ struct AssistCardView: View {
             Text("\(assist.cost) Points")
                 .font(.caption2)
                 .foregroundColor(.gray)
-            
+            //view in store
             Button(action: {
                 viewModel.buy(assist)
             }) {
@@ -48,3 +48,5 @@ struct AssistCardView: View {
         .shadow(radius: 2)
     }
 }
+
+//button to buy a card(thing)

@@ -5,10 +5,9 @@ struct ContentView: View {
     @Environment(\.modelContext) var context
     @State var items: [AssignmentItem] = []
     @State var selectedPoints: Double = 50.0
-//    @Binding var totalPoints: Int
     @AppStorage("totalPoints") var totalPoints: Int = 0
     var body: some View {
-        
+        //StudiBlob backround
         
         NavigationStack {
             
@@ -26,6 +25,7 @@ struct ContentView: View {
                                 .frame(alignment: .top)
                                 .padding()
                             Image("Blober")
+                            
                         }
                         VStack{
                             HeaderView(items: $items, showSheet: false)
