@@ -25,6 +25,9 @@ struct ContentView: View {
                                 .frame(alignment: .top)
                                 .padding()
                             Image("Blober")
+                                .resizable()
+                                .frame(width: 170, height: 130)
+                            
                             
                         }
                         VStack{
