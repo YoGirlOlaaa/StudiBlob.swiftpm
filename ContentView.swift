@@ -6,6 +6,7 @@ struct ContentView: View {
     @State var items: [AssignmentItem] = []
     @State var selectedPoints: Double = 50.0
     @AppStorage("totalPoints") var totalPoints: Int = 0
+    @State var asset = ""
     var body: some View {
         //StudiBlob backround
         
@@ -39,12 +40,14 @@ struct ContentView: View {
                                 .onDelete{ indexSet in items.remove(atOffsets: indexSet)
                                     totalPoints += Int(selectedPoints)
                                 }
-                                    
-                                Image("Blober")
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(width: 9000, height: 800)
+                                HStack{
+                                    Image("Blober")
+                                        .resizable()
+                                        .scaledToFit()
+                                        .frame(width: 9000, height: 800)
                                     Spacer()
+                                    Image(asset)
+                                }
                             }
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
