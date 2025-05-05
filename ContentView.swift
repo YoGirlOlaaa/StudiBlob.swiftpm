@@ -54,7 +54,7 @@ struct ContentView: View {
                     }
                 }
                 
-                
+                HStack{
                 NavigationLink(destination: Store()) {
                     Text("Go to the Store")
                         .padding()
@@ -63,7 +63,14 @@ struct ContentView: View {
                         .cornerRadius(10)
                 }
                 .padding()
-                
+                    NavigationLink(destination: Wardrobe()) {
+                        Text("Go to your Wardrobe")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                }
             }
             
         }
