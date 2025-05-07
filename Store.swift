@@ -22,7 +22,7 @@ struct Store: View {
                 Text("Points: \(totalPoints) ")
                     .font(.headline)
                     .padding(.horizontal)
-                
+                //displays what user has purchased
                 if !viewModel.ownedAssists.isEmpty {
                     ScrollView{
                         VStack(alignment: .leading, spacing: 5){
