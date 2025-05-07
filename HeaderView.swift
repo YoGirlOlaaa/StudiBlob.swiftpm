@@ -11,6 +11,7 @@ struct HeaderView: View {
     @Environment(\.modelContext) var context
     @Binding var items: [AssignmentItem]
     @State var itemCount = 1
+    // item count is a counter variable that helps track the number of items in the list 
     @State var newItemName: String = ""
     @State var newItemDescription: String = ""
     @State var newDueDate = Date()
