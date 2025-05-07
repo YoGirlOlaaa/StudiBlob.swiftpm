@@ -9,16 +9,14 @@ import SwiftUI
 
 struct HeaderView: View {
     @Environment(\.modelContext) var context
-    @Binding var items: [AssignmentItem]
-    @State var itemCount = 1
-    // item count is a counter variable that helps track the number of items in the list 
-    @State var newItemName: String = ""
-    @State var newItemDescription: String = ""
-    @State var newDueDate = Date()
-    @State var selectedPoints: Double = 50.0
-    @AppStorage("totalPoints") var totalPoints: Int = 0
-    @State var showSheet: Bool
-    @State var showSheet1 = false
+     @State var newItemName: String = ""
+     @State var newItemDescription: String = ""
+     @State var newDueDate = Date()
+     @State var selectedPoints: Double = 50.0
+     @AppStorage("totalPoints") var totalPoints: Int = 0
+     @State var showSheet: Bool
+     @State var showSheet1: Bool
+
     
     var body: some View {
         
@@ -99,14 +97,21 @@ struct HeaderView: View {
                 
                 Button {
                     defaultName()
-                    let newItem = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
-                    itemCount += 1
-                    items.append(newItem)
-                    items.sort { $0.date < $1.date }
+                    
+                    let newAssignment = AssignmentItem(
+                        name: newItemName,
+                        description: newItemDescription,
+                        date: newDueDate,
+                        points: Int(selectedPoints)
+                    )
+                   
+                    context.insert(newAssignment)
+                    
                     newItemName = ""
                     newItemDescription = ""
-                     newDueDate = Date()
+                    newDueDate = Date()
                     showSheet.toggle()
+                    
                 } label: {
                     ZStack{
                         Capsule()
@@ -122,6 +127,11 @@ struct HeaderView: View {
             }
         }
     }
+//    func addAssignment(name: String, dueDate: Date, Description: String, points: Int) {
+//        let newAssignment = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
+//    }
+//    
+    
     func defaultName() {
         if newItemName == ""{
             newItemName = "No Assignment Name"
@@ -139,3 +149,6 @@ let dateFormatter: DateFormatter = {
     formatter.timeStyle = .short
     return formatter
     }()
+
+
+
