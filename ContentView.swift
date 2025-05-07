@@ -8,7 +8,7 @@ struct ContentView: View {
     @AppStorage("totalPoints") var totalPoints: Int = 0
     @State var asset = ""
     @State var instruction = false
-   
+    
     var body: some View {
         //StudiBlob backround
         
@@ -57,28 +57,37 @@ struct ContentView: View {
                 }
                 
                 HStack{
-                NavigationLink(destination: Store()) {
-                    Text("Go to the Store")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(10)
-                }
-                .padding()
-                
-                HStack{
-                    Spacer()
-                    Button(action: {
-                        instruction.toggle()
-                    }) {
-                        Image(systemName: "info.circle")
-                            .font(.system(size: 40))
-                            .foregroundColor(.blue)
-                        
-                            
+                    NavigationLink(destination: Store()) {
+                        Text("Go to the Store")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
                     }
-                    .sheet(isPresented: $instruction) {
-                        InstructionView(instruction: $instruction)
+                    NavigationLink(destination: Wardrobe()) {
+                        Text("Go to your Wardrobe")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
+                    .padding()
+                    
+                    HStack{
+                        Spacer()
+                        Button(action: {
+                            instruction.toggle()
+                        }) {
+                            Image(systemName: "info.circle")
+                                .font(.system(size: 40))
+                                .foregroundColor(.blue)
+                            
+                            
+                        }
+                        .sheet(isPresented: $instruction) {
+                            InstructionView(instruction: $instruction)
+                        }
+                        
                     }
                     
                 }
@@ -86,37 +95,37 @@ struct ContentView: View {
             }
             
         }
-        
     }
-}
-
-struct InstructionView: View {
-    @Binding var instruction: Bool
-    var body: some View {
-        VStack(spacing:20) {
-            Text("How to use StudiBlob")
-                .font(.largeTitle)
-                .bold()
-                .padding()
-            Text("1. Add an Asignment: Click 'Add an Asignment' to create a new assignment.")
+    
+    struct InstructionView: View {
+        @Binding var instruction: Bool
+        var body: some View {
+            VStack(spacing:20) {
+                Text("How to use StudiBlob")
+                    .font(.largeTitle)
+                    .bold()
+                    .padding()
+                Text("1. Add an Asignment: Click 'Add an Asignment' to create a new assignment.")
+                    .font(.title)
+                    .padding()
+                Text("2. Delete assignment: Completeing assignment gives you points that you ca use to the store.")
+                    .font(.title)
+                    .padding()
+                Text("3. Open the Store: Click 'Go to the Store' to see your points and how much you can spend on your favorite products.")
+                    .font(.title)
+                    .padding()
+                Button("Close"){
+                    instruction = false
+                }
                 .font(.title)
                 .padding()
-            Text("2. Delete assignment: Completeing assignment gives you points that you ca use to the store.")
-                .font(.title)
-                .padding()
-            Text("3. Open the Store: Click 'Go to the Store' to see your points and how much you can spend on your favorite products.")
-              .font(.title)
-              .padding()
-            Button("Close"){
-                instruction = false
+                .background(.blue)
+                .foregroundColor(.white)
+                .cornerRadius(10)
             }
-            .font(.title)
-            .padding()
-            .background(.blue)
-            .foregroundColor(.white)
-            .cornerRadius(10)
+            
         }
-        
     }
+    
 }
 
