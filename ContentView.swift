@@ -70,24 +70,25 @@ struct ContentView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                    }
+                    
                     .padding()
                     
-                    HStack{
-                        Spacer()
-                        Button(action: {
-                            instruction.toggle()
-                        }) {
-                            Image(systemName: "info.circle")
-                                .font(.system(size: 40))
-                                .foregroundColor(.blue)
-                            
-                            
+                        HStack{
+//
+                            Button(action: {
+                                instruction.toggle()
+                            }) {
+                                Image(systemName: "info.circle")
+                                    .frame(alignment: .leading)
+                                    .font(.system(size: 40))
+                                    .foregroundColor(.blue)
+                                    
+                                
+                            }
+                            .sheet(isPresented: $instruction) {
+                                InstructionView(instruction: $instruction)
+                            }
                         }
-                        .sheet(isPresented: $instruction) {
-                            InstructionView(instruction: $instruction)
-                        }
-                        
                     }
                     
                 }
