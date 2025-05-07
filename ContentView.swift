@@ -68,24 +68,25 @@ struct ContentView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                    }
+                    
                     .padding()
                     
-                    HStack{
-                        Spacer()
-                        Button(action: {
-                            instruction.toggle()
-                        }) {
-                            Image(systemName: "info.circle")
-                                .font(.system(size: 40))
-                                .foregroundColor(.blue)
-                            
-                            
+                        HStack{
+//
+                            Button(action: {
+                                instruction.toggle()
+                            }) {
+                                Image(systemName: "info.circle")
+                                    .frame(alignment: .leading)
+                                    .font(.system(size: 40))
+                                    .foregroundColor(.blue)
+                                    
+                                
+                            }
+                            .sheet(isPresented: $instruction) {
+                                InstructionView(instruction: $instruction)
+                            }
                         }
-                        .sheet(isPresented: $instruction) {
-                            InstructionView(instruction: $instruction)
-                        }
-                        
                     }
                     
                 }
@@ -99,18 +100,23 @@ struct ContentView: View {
         @Binding var instruction: Bool
         var body: some View {
             VStack(spacing:20) {
+                //how to use study blob
                 Text("How to use StudiBlob")
                     .font(.largeTitle)
+                    .foregroundColor(.blue)
                     .bold()
                     .padding()
-                Text("1. Add an Asignment: Click 'Add an Asignment' to create a new assignment.")
+                Text("1. Click 'Add an Asignment' to create a new assignment.")
                     .font(.title)
+                    .foregroundColor(.black)
                     .padding()
-                Text("2. Delete assignment: Completeing assignment gives you points that you ca use to the store.")
+                Text("2. Completeing assignment gives you points that you can use to the store.")
                     .font(.title)
+                    .foregroundColor(.black)
                     .padding()
-                Text("3. Open the Store: Click 'Go to the Store' to see your points and how much you can spend on your favorite products.")
+                Text("3. Click 'Go to the Store' to see your points and how much you can spend on your favorite items.")
                     .font(.title)
+                    .foregroundColor(.black)
                     .padding()
                 Button("Close"){
                     instruction = false
@@ -126,4 +132,3 @@ struct ContentView: View {
     }
     
 }
-
