@@ -64,6 +64,13 @@ struct ContentView: View {
                             .foregroundColor(.white)
                             .cornerRadius(10)
                     }
+                    NavigationLink(destination: Wardrobe()) {
+                        Text("Go to your Wardrobe")
+                            .padding()
+                            .background(Color.blue)
+                            .foregroundColor(.white)
+                            .cornerRadius(10)
+                    }
                     .padding()
                     
                     HStack{
@@ -120,4 +127,5 @@ struct ContentView: View {
             
         }
     }
+    
 }
