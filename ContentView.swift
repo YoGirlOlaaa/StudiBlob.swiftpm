@@ -105,16 +105,20 @@ struct ContentView: View {
                 //how to use study blob
                 Text("How to use StudiBlob")
                     .font(.largeTitle)
+                    .foregroundColor(.blue)
                     .bold()
                     .padding()
                 Text("1. Click 'Add an Asignment' to create a new assignment.")
                     .font(.title)
+                    .foregroundColor(.black)
                     .padding()
                 Text("2. Completeing assignment gives you points that you can use to the store.")
                     .font(.title)
+                    .foregroundColor(.black)
                     .padding()
                 Text("3. Click 'Go to the Store' to see your points and how much you can spend on your favorite items.")
                     .font(.title)
+                    .foregroundColor(.black)
                     .padding()
                 Button("Close"){
                     instruction = false
