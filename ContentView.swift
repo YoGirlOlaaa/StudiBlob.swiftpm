@@ -102,6 +102,7 @@ struct ContentView: View {
         @Binding var instruction: Bool
         var body: some View {
             VStack(spacing:20) {
+                //how to use study blob
                 Text("How to use StudiBlob")
                     .font(.largeTitle)
                     .bold()
@@ -129,4 +130,3 @@ struct ContentView: View {
     }
     
 }
-

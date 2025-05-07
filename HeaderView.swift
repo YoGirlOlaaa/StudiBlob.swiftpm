@@ -40,7 +40,7 @@ struct HeaderView: View {
         }
         .sheet(isPresented: $showSheet){
             VStack{
-                
+                //assignment information
                 Text("Add The New Assignment")
                     .font(.largeTitle)
                 Divider()
