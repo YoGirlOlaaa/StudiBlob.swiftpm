@@ -3,7 +3,7 @@ import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) var context
-    @State var items: [AssignmentItem] = []
+    @Query var items: [AssignmentItem] = []
     @State var selectedPoints: Double = 50.0
     @AppStorage("totalPoints") var totalPoints: Int = 0
     @State var asset = ""
@@ -30,8 +30,6 @@ struct ContentView: View {
                             Image("Blober")
                                 .resizable()
                                 .frame(width: 170, height: 130)
-                            
-                            
                         }
                         VStack{
                             HeaderView(showSheet: false, showSheet1: false)
@@ -39,14 +37,14 @@ struct ContentView: View {
                                 ForEach(items, id: \.self){ currentItem in
                                     ListView(currentItem: currentItem)
                                 }
-                                .onDelete{ indexSet in items.remove(atOffsets: indexSet)
-                                    totalPoints += Int(selectedPoints)
-                                }
+//                                .onDelete{ indexSet in items.remove(atOffsets: indexSet)
+//                                    totalPoints += Int(selectedPoints)
+//                                }
                                 HStack{
-                                    Image("Blober")
-                                        .resizable()
-                                        .scaledToFit()
-                                        .frame(width: 9000, height: 800)
+//                                    Image("Blober")
+//                                        .resizable()
+//                                        .scaledToFit()
+//                                        .frame(width: 9000, height: 800)
                                     Spacer()
                                     Image(asset)
                                 }

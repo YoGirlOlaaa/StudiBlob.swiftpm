@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HeaderView: View {
     @Environment(\.modelContext) var context
+    
      @State var newItemName: String = ""
      @State var newItemDescription: String = ""
      @State var newDueDate = Date()
