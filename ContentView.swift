@@ -31,7 +31,7 @@ struct ContentView: View {
                             
                         }
                         VStack{
-                            HeaderView(items: $items, showSheet: false)
+                            HeaderView(showSheet: false, showSheet1: false)
                             List{
                                 ForEach(items, id: \.self){ currentItem in
                                     ListView(currentItem: currentItem)
