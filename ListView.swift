@@ -30,6 +30,8 @@ struct ListView: View{
                     .font(.system(size: 30))
                     .offset(y: -60)
                     .frame(width: 350)
+                
+                
             }
         }
         .font(.title)
