@@ -43,16 +43,29 @@ struct HeaderView: View {
             VStack{
                 //assignment information
                 Text("Add The New Assignment")
-                    .font(.largeTitle)
+                    .font(.system(size: 40, weight: .semibold, design: .serif))
+                        .foregroundStyle(.black)
                 Divider()
                     .padding()
                 
                 VStack {
                     Text("Due: \(newDueDate, formatter: dateFormatter)")
+                        .font(.system(size: 30, weight: .semibold, design: .serif))
+                            .foregroundStyle(.black)
                         .padding()
                     
-                    Button("Change due date") {
+                    Button {
                         showSheet1.toggle()
+                    } label:{
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 150, height: 30)
+                                .foregroundStyle(.blue)
+                            Text("Change Due Date")
+                                .font(.system(size: 15, weight: .semibold, design: .serif))
+                                .foregroundStyle(.white)
+                        }
+                    }
                     }
                     .padding()
                      .foregroundStyle(.blue)
@@ -84,21 +97,34 @@ struct HeaderView: View {
                 
                 VStack{
                     Text("Assignment Name")
-                    TextField("Assignment name", text: $newItemName)
+                        .font(.system(size: 25, weight: .semibold, design: .serif))
+                            .foregroundStyle(.black)
+                    TextField("Put Your Assignment Name Here", text: $newItemName)
+                        .frame(width: 300, height: 50)
+                        .foregroundStyle(.black)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
+                        
+                        
                 }
                 VStack{
-                    Text("Assignment description")
-                    TextField("Assignment description", text: $newItemDescription)
+                    Text("Assignment Description")
+                        .font(.system(size: 25, weight: .semibold, design: .serif))
+                    TextField("Put Your Assignment Despription Here", text: $newItemDescription)
+                        .frame(width: 500, height: 50)
                         .textFieldStyle(RoundedBorderTextFieldStyle())
                 }
                 
                 Slider(value: $selectedPoints, in: 0...20, step: 1)
                 Text(String(format: "Your assignment is worth %.0f points", selectedPoints))
                 
-                Button {
-                    defaultName()
+            Button{
                     
+                if newItemName == ""{
+                    newItemName = "No Assignment Name"
+                }
+                if newItemDescription == ""{
+                    newItemDescription = "No Description"
+                }
                     let newAssignment = AssignmentItem(
                         name: newItemName,
                         description: newItemDescription,
@@ -114,13 +140,17 @@ struct HeaderView: View {
                     showSheet.toggle()
                     
                 } label: {
-                    ZStack{
-                        Capsule()
-                            .frame(width: 500, height: 50)
-                        Text("Complete Creating Assignment")
-                            .foregroundStyle(.black)
+                   
+                        ZStack{
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 500, height: 50)
+                                .foregroundStyle(.blue)
+                            Text("Complete Creating Assignment")
+                                .font(.system(size: 30, weight: .semibold, design: .serif))
+                                .foregroundStyle(.white)
+                        }
                             
-                    }
+                    
                 }
                 
                 
@@ -133,21 +163,13 @@ struct HeaderView: View {
 //    }
 //    
     
-    func defaultName() {
-        if newItemName == ""{
-            newItemName = "No Assignment Name"
-        }
-        if newItemDescription == ""{
-            newItemDescription = "No Description"
-        }
-        
-    }
-    }
+    
+
 
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateStyle = .medium
-    formatter.timeStyle = .short
+    formatter.dateStyle = .long
+    formatter.timeStyle = .none
     return formatter
     }()
 
