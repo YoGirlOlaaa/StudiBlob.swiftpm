@@ -18,16 +18,28 @@ struct ContentView: View {
                 
                 
                 ZStack{
-                    Color.blue
-                        .opacity(0.3)
+                    Image("Image 3")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                .edgesIgnoringSafeArea(.top)
+                        
+//                    Color.blue
+//                        .opacity(0.3)
+//                        .shadow(radius: 5)
+//                        .cornerRadius(20)
+                    
+                    
+                    
                     VStack{
                         
                         
                         HStack{
                             Text("StudiBlob").font(.system(size: 55, weight: .semibold, design: .serif))
                                 .frame(alignment: .top)
-                                .padding()
-                          
+                                .shadow(radius: 5)
+                                .padding(.top, 70)
+                            
                         }
                         VStack{
                             HeaderView(showSheet: false, showSheet1: false)
@@ -35,14 +47,14 @@ struct ContentView: View {
                                 ForEach(items, id: \.self){ currentItem in
                                     ListView(currentItem: currentItem)
                                 }
-//                                .onDelete{ indexSet in items.remove(atOffsets: indexSet)
-//                                    totalPoints += Int(selectedPoints)
-//                                }
+                                //                                .onDelete{ indexSet in items.remove(atOffsets: indexSet)
+                                //                                    totalPoints += Int(selectedPoints)
+                                //                                }
                                 HStack{
-//                                    Image("Blober")
-//                                        .resizable()
-//                                        .scaledToFit()
-//                                        .frame(width: 9000, height: 800)
+                                    //                                    Image("Blober")
+                                    //                                        .resizable()
+                                    //                                        .scaledToFit()
+                                    //                                        .frame(width: 9000, height: 800)
                                     Spacer()
                                     Image(asset)
                                 }
@@ -66,11 +78,11 @@ struct ContentView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                    
-                    .padding()
-                    
+                        
+                            .padding()
+                        
                         HStack{
-//
+                            //
                             Button(action: {
                                 instruction.toggle()
                             }) {
@@ -78,11 +90,12 @@ struct ContentView: View {
                                     .frame(alignment: .leading)
                                     .font(.system(size: 40))
                                     .foregroundColor(.blue)
-                                    
+                                
                                 
                             }
                             .sheet(isPresented: $instruction) {
                                 InstructionView(instruction: $instruction)
+                                    .foregroundStyle(.blue)
                             }
                         }
                     }
