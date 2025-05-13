@@ -18,8 +18,19 @@ struct ContentView: View {
                 
                 
                 ZStack{
-                    Color.blue
-                        .opacity(0.3)
+                    Image("Image 3")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                                .edgesIgnoringSafeArea(.top)
+                        
+//                    Color.blue
+//                        .opacity(0.3)
+//                        .shadow(radius: 5)
+//                        .cornerRadius(20)
+                    
+                    
+                    
                     VStack{
                         
                         
@@ -44,49 +55,10 @@ struct ContentView: View {
                                 .onDelete(perform: deleteAssignment)
                                 }
                                 HStack{
-                                    ZStack{
-                                        
-                                        Image("Blober")
-                                            .resizable()
-                                            .scaledToFit()
-                                            .frame(width: 8000, height: 700)
-                                        
-                                        ZStack {
-                                          
-                                            if items.indices.contains(0) {
-                                                ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].name, date: Date(), points: 50))
-                                                    .padding(.top, 50)
-                                                    .padding(.trailing, 1000)
-                                            }
-                                            
-                                           
-                                            if items.indices.contains(1) {
-                                                ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].name, date: Date(), points: 50))
-                                                    .padding(.top, 50)
-                                                    .padding(.leading, 1000)
-                                            }
-                                            
-                                            
-                                            if items.indices.contains(2) {
-                                                ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].name, date: Date(), points: 50))
-                                                    .padding(.bottom, 600)
-                                                    .padding(.trailing, 1000)
-                                            }
-                                            
-                                            
-                                            if items.indices.contains(3) {
-                                                ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].name, date: Date(), points: 50))
-                                                    .padding(.bottom, 600)
-                                                    .padding(.leading, 1000)
-                                            }
-                                            
-                                            if items.indices.contains(4) {
-                                                ListView(currentItem: AssignmentItem(name: items[4].name, description: items[4].name, date: Date(), points: 50))
-                                                    .padding(.bottom, 600)
-                                                    
-                                            }
-                                        }
-                                    }
+                                    //                                    Image("Blober")
+                                    //                                        .resizable()
+                                    //                                        .scaledToFit()
+                                    //                                        .frame(width: 9000, height: 800)
                                     Spacer()
                                     Image(asset)
                                 }
@@ -110,9 +82,9 @@ struct ContentView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                    
-                    .padding()
-                    
+                        
+                            .padding()
+                        
                         HStack{
 
                             Button(action: {
@@ -127,6 +99,7 @@ struct ContentView: View {
                             }
                             .sheet(isPresented: $instruction) {
                                 InstructionView(instruction: $instruction)
+                                    .foregroundStyle(.blue)
                             }
                         }
                     }
