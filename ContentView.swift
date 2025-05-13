@@ -27,9 +27,7 @@ struct ContentView: View {
                             Text("StudiBlob").font(.system(size: 55, weight: .semibold, design: .serif))
                                 .frame(alignment: .top)
                                 .padding()
-                            Image("Blober")
-                                .resizable()
-                                .frame(width: 170, height: 130)
+                          
                         }
                         VStack{
                             HeaderView(showSheet: false, showSheet1: false)
