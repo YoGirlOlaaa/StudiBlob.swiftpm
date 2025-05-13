@@ -28,6 +28,7 @@ struct HeaderView: View {
                 Capsule()
                     .frame(width: 500, height: 55)
                     .foregroundStyle(.blue)
+                    
             HStack{
                 
                     Text("Add An Assignment")

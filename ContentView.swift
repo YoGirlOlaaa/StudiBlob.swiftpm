@@ -18,9 +18,8 @@ struct ContentView: View {
                 
                 
                 ZStack{
-                    Image("Image 3")
+                    Image("Image")
                         .resizable()
-                        .scaledToFill()
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                                 .edgesIgnoringSafeArea(.top)
                         
@@ -38,7 +37,7 @@ struct ContentView: View {
                             Text("StudiBlob").font(.system(size: 55, weight: .semibold, design: .serif))
                                 .frame(alignment: .top)
                                 .shadow(radius: 5)
-                                .padding(.top, 70)
+                                .padding(.top, 60)
                             
                         }
                         VStack{
@@ -61,8 +60,11 @@ struct ContentView: View {
                                 }
                             }
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        
                         }
-                    }
+                    Spacer()
+                }
+                
                 }
                 
                 HStack{
@@ -72,6 +74,7 @@ struct ContentView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
+                            .opacity(0.3)
                     }
                     NavigationLink(destination: Wardrobe()) {
                         Text("Go to your Wardrobe")
@@ -79,7 +82,7 @@ struct ContentView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                        
+                            .opacity(0.3)
                             .padding()
                         
                         HStack{
@@ -99,8 +102,8 @@ struct ContentView: View {
                                     .foregroundStyle(.blue)
                             }
                         }
+                        
                     }
-                    
                 }
                 
             }
