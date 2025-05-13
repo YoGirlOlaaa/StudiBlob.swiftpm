@@ -37,9 +37,10 @@ struct ContentView: View {
                                 ForEach(items, id: \.self){ currentItem in
                                     ListView(currentItem: currentItem)
                                 }
-//                                .onDelete{ indexSet in items.remove(atOffsets: indexSet)
+//                                .onDelete{ indexset in deleteAssignments(at: indexset)
 //                                    totalPoints += Int(selectedPoints)
-//                                }
+                                .onDelete(perform: deleteAssignment)
+                                }
                                 HStack{
 //                                    Image("Blober")
 //                                        .resizable()
@@ -72,7 +73,7 @@ struct ContentView: View {
                     .padding()
                     
                         HStack{
-//
+
                             Button(action: {
                                 instruction.toggle()
                             }) {
@@ -94,8 +95,17 @@ struct ContentView: View {
             }
             
         }
+    //this code "delete assignment" helps to compress points to the store
+    func deleteAssignment(at offsets: IndexSet) {
+        for index in offsets {
+            let item = items[index]
+            totalPoints += item.totalPoints
+            context.delete(item)
+        }
+        
     }
-    
+    }
+
     struct InstructionView: View {
         @Binding var instruction: Bool
         var body: some View {
@@ -131,4 +141,4 @@ struct ContentView: View {
         }
     }
     
-}
+
