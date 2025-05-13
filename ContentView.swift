@@ -46,14 +46,33 @@ struct ContentView: View {
                         }
                         VStack{
                             HeaderView(showSheet: false, showSheet1: false)
-                            List{
-                                ForEach(items, id: \.self){ currentItem in
-                                    ListView(currentItem: currentItem)
+                           // List{
+                               // ForEach(items, id: \.self){ currentItem in
+                                 //   ListView(currentItem: currentItem)
+                              //  }
+                               // .onDelete(perform: deleteAssignment)
+                               // }
+                            ZStack{
+                                
+                                Image("Blober")
+                                    .resizable()
+                                    .frame(width: 1000, height: 800)
+                                
+                                if items.indices.contains(0) {
+                                    ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
+                                        .padding(.bottom, 100)
                                 }
-//                                .onDelete{ indexset in deleteAssignments(at: indexset)
-//                                    totalPoints += Int(selectedPoints)
-                                .onDelete(perform: deleteAssignment)
+                                if items.indices.contains(1) {
+                                    ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: 50))
                                 }
+                                if items.indices.contains(2) {
+                                    ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: 50))
+                                }
+                                if items.indices.contains(3) {
+                                    ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: 50))
+                                }
+                                    
+                            }
                                 HStack{
                                     //                                    Image("Blober")
                                     //                                        .resizable()
