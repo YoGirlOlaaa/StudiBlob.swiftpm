@@ -6,7 +6,7 @@ struct ContentView: View {
     @Query var items: [AssignmentItem] = []
     @State var selectedPoints: Double = 50.0
     @AppStorage("totalPoints") var totalPoints: Int = 0
-    @State var asset = ""
+    @State var assetHat = ""
     @State var instruction = false
     
     var body: some View {
@@ -52,11 +52,14 @@ struct ContentView: View {
                                // .onDelete(perform: deleteAssignment)
                                // }
                             ZStack{
-                                
-                                Image("Blober")
-                                    .resizable()
-                                    .frame(width: 1000, height: 800)
-                                
+                                ZStack{
+                                    Image("Blober")
+                                        .resizable()
+                                        .frame(width: 1000, height: 800)
+                                    Image(assetHat)
+                                        .resizable()
+                                        .frame(width: 1000, height: 800)
+                                }
                                 if items.indices.contains(0) {
                                     ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
                                         .padding(.bottom, 100)
@@ -78,7 +81,7 @@ struct ContentView: View {
                                     //                                        .scaledToFit()
                                     //                                        .frame(width: 9000, height: 800)
                                     Spacer()
-                                    Image(asset)
+//                                    Image(asset)
                                 }
                             }
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -97,7 +100,7 @@ struct ContentView: View {
                             .cornerRadius(10)
                             .opacity(0.3)
                     }
-                    NavigationLink(destination: Wardrobe()) {
+                    NavigationLink(destination: Wardrobe(assetHat: $assetHat)) {
                         Text("Go to your Wardrobe")
                             .padding()
                             .background(Color.blue)

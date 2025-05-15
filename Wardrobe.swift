@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct Wardrobe: View {
-    let menuItems = ["Start Game", "Options", "High Scores", "Exit", "Settings", "Credits", "Help"]
+    @Binding var assetHat: String
+    let menuItems = ["Image", "Unknown", "Top Hat", "Exit", "Settings", "Credits", "Help"]
 //    these have to be replaced with the bought items
     var body: some View {
+        
         Text("Welcome To Your Wardrobe")
             .font(.system(size: 55, weight: .semibold, design: .serif))
                 .frame(alignment: .top)
@@ -23,8 +25,8 @@ struct Wardrobe: View {
                         
                         ForEach(menuItems, id: \.self) { item in
                             Button(action: {
-                                
-                            }) {
+                                assetHat = item
+                            })  {
                                 ZStack{
                                     RoundedRectangle(cornerRadius: 10)
                                         .frame(width: 200)
@@ -57,6 +59,6 @@ struct Wardrobe: View {
     
 }
 
-#Preview {
-    Wardrobe()
-}
+//#Preview {
+//    Wardrobe(asset: $asset)
+//}
