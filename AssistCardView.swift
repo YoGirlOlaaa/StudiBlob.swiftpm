@@ -13,13 +13,15 @@ struct AssistCardView: View {
     
     var body: some View {
         VStack(spacing: 8) {
-            Image(systemName: assist.picture)
+            Image(assist.picture)
                 .resizable()
-                .frame(width: 40, height: 40)
+//                .frame(width: 200, height: 200)
                 .padding()
+                .offset(y: 15)
                 .background(Color.gray.opacity(0.2))
                 .clipShape(Circle())
-            
+                .frame(width: 100, height: 100)
+                
             Text(assist.name)
                 .font(.caption)
                 .fontWeight(.medium)
