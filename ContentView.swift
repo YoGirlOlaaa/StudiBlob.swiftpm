@@ -18,7 +18,7 @@ struct ContentView: View {
                 
                 
                 ZStack{
-                  
+                    
                     
                     
                     VStack{
@@ -27,9 +27,9 @@ struct ContentView: View {
                             Image("Image")
                                 .resizable()
                                 .frame(maxWidth: .infinity, maxHeight: 200)
-                                
-                                
-                                
+                            
+                            
+                            
                             HStack{
                                 
                                 
@@ -41,52 +41,52 @@ struct ContentView: View {
                         
                         VStack{
                             ScrollView{
-                            HeaderView(showSheet: false, showSheet1: false)
-                           // List{
-                               // ForEach(items, id: \.self){ currentItem in
-                                 //   ListView(currentItem: currentItem)
-                              //  }
-                               // .onDelete(perform: deleteAssignment)
-                               // }
-                            ZStack{
+                                HeaderView(showSheet: false, showSheet1: false)
+                                // List{
+                                // ForEach(items, id: \.self){ currentItem in
+                                //   ListView(currentItem: currentItem)
+                                //  }
+                                // .onDelete(perform: deleteAssignment)
+                                // }
                                 ZStack{
+                                    ZStack{
+                                        
+                                        Image("Blober")
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+                                        Image(assetHat)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+                                    }
+                                    if items.indices.contains(0) {
+                                        ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
+                                            .padding(.bottom, 100)
+                                    }
+                                    if items.indices.contains(1) {
+                                        ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: 50))
+                                    }
+                                    if items.indices.contains(2) {
+                                        ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: 50))
+                                    }
+                                    if items.indices.contains(3) {
+                                        ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: 50))
+                                    }
                                     
-                                    Image("Blober")
-                                        .resizable()
-                                        .frame(width: 1000, height: 800)
-                                    Image(assetHat)
-                                        .resizable()
-                                        .frame(width: 1000, height: 800)
                                 }
-                                if items.indices.contains(0) {
-                                    ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
-                                        .padding(.bottom, 100)
-                                }
-                                if items.indices.contains(1) {
-                                    ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: 50))
-                                }
-                                if items.indices.contains(2) {
-                                    ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: 50))
-                                }
-                                if items.indices.contains(3) {
-                                    ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: 50))
-                                }
-                                    
-                            }
                                 HStack{
                                     //                                    Image("Blober")
                                     //                                        .resizable()
                                     //                                        .scaledToFit()
                                     //                                        .frame(width: 9000, height: 800)
                                     Spacer()
-//                                    Image(asset)
+                                    //                                    Image(asset)
                                 }
                             }
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
-                    Spacer()
-                }
-                
+                        Spacer()
+                    }
+                    
                 }
                 
                 HStack{
@@ -108,7 +108,7 @@ struct ContentView: View {
                             .padding()
                         
                         HStack{
-
+                            
                             Button(action: {
                                 instruction.toggle()
                             }) {
@@ -131,9 +131,9 @@ struct ContentView: View {
             }
             
         }
-    
+        
     }
-
+    
     struct InstructionView: View {
         @Binding var instruction: Bool
         var body: some View {
@@ -169,4 +169,5 @@ struct ContentView: View {
         }
     }
     
-
+    
+}
