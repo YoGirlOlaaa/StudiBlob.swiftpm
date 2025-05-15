@@ -26,7 +26,7 @@ struct ContentView: View {
                         ZStack{
                             Image("Image")
                                 .resizable()
-                                .frame(maxWidth: .infinity, maxHeight: 300)
+                                .frame(maxWidth: .infinity, maxHeight: 200)
                                 
                                 
                                 
@@ -34,13 +34,13 @@ struct ContentView: View {
                                 
                                 
                                 Text("StudiBlob").font(.system(size: 55, weight: .semibold, design: .serif))
-                                    .offset(y: 60)
                                     .padding()
                                 
                             }
                         }
                         
                         VStack{
+                            ScrollView{
                             HeaderView(showSheet: false, showSheet1: false)
                            // List{
                                // ForEach(items, id: \.self){ currentItem in
@@ -48,38 +48,38 @@ struct ContentView: View {
                               //  }
                                // .onDelete(perform: deleteAssignment)
                                // }
-                            ZStack{
-                                
-                                Image("Blober")
-                                    .resizable()
-                                    .frame(width: 1000, height: 800)
-                                
-                                if items.indices.contains(0) {
-                                    ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
-                                        .padding(.bottom, 550)
-                                }
+                                ZStack{
                                     
-                                if items.indices.contains(1) {
-                                    ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: 50))
-                                        .padding(.trailing, 800)
-                                        .padding(.bottom, 200)
+                                    Image("Blober")
+                                        .resizable()
+                                        .frame(width: 1000, height: 800)
+                                    
+                                    if items.indices.contains(0) {
+                                        ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
+                                            .padding(.bottom, 550)
+                                    }
+                                    
+                                    if items.indices.contains(1) {
+                                        ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: 50))
+                                            .padding(.trailing, 800)
+                                            .padding(.bottom, 200)
+                                    }
+                                    if items.indices.contains(2) {
+                                        ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: 50))
+                                            .padding(.leading, 800)
+                                            .padding(.bottom, 200)
+                                    }
+                                    if items.indices.contains(3) {
+                                        ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: 50))
+                                            .padding(.trailing, 800)
+                                            .padding(.top, 500)
+                                    }
+                                    if items.indices.contains(4) {
+                                        ListView(currentItem: AssignmentItem(name: items[4].name, description: items[4].descriptionn, date: Date(), points: 50))
+                                            .padding(.leading, 800)
+                                            .padding(.top, 500)
+                                    }
                                 }
-                                if items.indices.contains(2) {
-                                    ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: 50))
-                                        .padding(.leading, 800)
-                                        .padding(.bottom, 200)
-                                }
-                                if items.indices.contains(3) {
-                                    ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: 50))
-                                        .padding(.trailing, 800)
-                                        .padding(.top, 500)
-                                }
-                                if items.indices.contains(4) {
-                                    ListView(currentItem: AssignmentItem(name: items[4].name, description: items[4].descriptionn, date: Date(), points: 50))
-                                        .padding(.leading, 800)
-                                        .padding(.top, 500)
-                                }
-
                                     
                             }
                                 HStack{
