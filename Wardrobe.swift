@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Wardrobe: View {
     @Binding var assetHat: String
-    let menuItems = ["Image", "Unknown", "Top Hat", "Exit", "Settings", "Credits", "Help"]
+    let menuItems = ["Image", "Unknown", "Black Top Hat", "Exit", "Settings", "Credits", "Help"]
 //    these have to be replaced with the bought items
     var body: some View {
         
