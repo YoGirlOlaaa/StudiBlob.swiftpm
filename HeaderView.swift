@@ -163,9 +163,6 @@ struct HeaderView: View {
 //        let newAssignment = AssignmentItem(name: newItemName, description: newItemDescription, date: newDueDate, points: Int(selectedPoints))
 //    }
 //    
-    
-    
-
 
 let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()

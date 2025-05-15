@@ -56,13 +56,19 @@ struct ListView: View{
         }
         .font(.title)
     }
-    //this code "delete assignment" helps to compress points to the store
     func deleteAssignment(_ item: AssignmentItem){
         totalPoints += item.totalPoints
         context.delete(item)
+        do {
+            try context.save()
+        } catch {
+            print("Failed to save context after deletion: \(error)")
+        }
         
     }
 }
+    
+
 
 #Preview {
     ListView(currentItem: AssignmentItem(name: "Testing", description: "testinghfofsorffugpods8iurhfuhirufhrhgshgutfpo8dhrpgudwo", date: Date(), points: 47))

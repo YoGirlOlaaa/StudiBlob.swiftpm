@@ -18,32 +18,29 @@ struct ContentView: View {
                 
                 
                 ZStack{
-                    Image("Image")
-                        .resizable()
-                        .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                                .edgesIgnoringSafeArea(.top)
-                        
-//                    Color.blue
-//                        .opacity(0.3)
-//                        .shadow(radius: 5)
-//                        .cornerRadius(20)
-                    
+                  
                     
                     
                     VStack{
                         
-                        
-                        HStack{
-                            
-                            Text("StudiBlob").font(.system(size: 55, weight: .semibold, design: .serif))
-                                .frame(alignment: .top)
-                                .padding()
-                            Image("Blober")
+                        ZStack{
+                            Image("Image")
                                 .resizable()
-                                .frame(width: 170, height: 130)
-                            
+                                .frame(maxWidth: .infinity, maxHeight: 200)
+                                
+                                
+                                
+                            HStack{
+                                
+                                
+                                Text("StudiBlob").font(.system(size: 55, weight: .semibold, design: .serif))
+                                    .padding()
+                                
+                            }
                         }
+                        
                         VStack{
+                            ScrollView{
                             HeaderView(showSheet: false, showSheet1: false)
                            // List{
                                // ForEach(items, id: \.self){ currentItem in
@@ -53,6 +50,7 @@ struct ContentView: View {
                                // }
                             ZStack{
                                 ZStack{
+                                    
                                     Image("Blober")
                                         .resizable()
                                         .frame(width: 1000, height: 800)

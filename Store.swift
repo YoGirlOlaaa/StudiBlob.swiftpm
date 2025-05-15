@@ -13,10 +13,15 @@ struct Store: View {
     @AppStorage("totalPoints") var totalPoints: Int = 0
     var body: some View {
         VStack(alignment: .center, spacing: 20) {
-            Text("Store")
-                .font(.largeTitle)
-                .bold()
-                .frame(alignment: .top)
+            HStack{
+                Text("Store")
+                    .font(.largeTitle)
+                    .bold()
+                    .frame(alignment: .top)
+                    .padding()
+                Image("Blober")
+                    .resizable()
+                .frame(width: 250, height: 200)}
             
             VStack(alignment: .trailing){
                 Text("Points: \(totalPoints) ")
