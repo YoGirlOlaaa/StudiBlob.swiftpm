@@ -18,9 +18,8 @@ struct ContentView: View {
                 
                 
                 ZStack{
-                    Image("Image 3")
+                    Image("Image")
                         .resizable()
-                        .scaledToFill()
                         .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                                 .edgesIgnoringSafeArea(.top)
                         
@@ -35,20 +34,44 @@ struct ContentView: View {
                         
                         
                         HStack{
+                            
                             Text("StudiBlob").font(.system(size: 55, weight: .semibold, design: .serif))
                                 .frame(alignment: .top)
-                                .shadow(radius: 5)
-                                .padding(.top, 70)
+                                .padding()
+                            Image("Blober")
+                                .resizable()
+                                .frame(width: 170, height: 130)
                             
                         }
                         VStack{
                             HeaderView(showSheet: false, showSheet1: false)
-                            List{
-                                ForEach(items, id: \.self){ currentItem in
-                                    ListView(currentItem: currentItem)
+                           // List{
+                               // ForEach(items, id: \.self){ currentItem in
+                                 //   ListView(currentItem: currentItem)
+                              //  }
+                               // .onDelete(perform: deleteAssignment)
+                               // }
+                            ZStack{
+                                
+                                Image("Blober")
+                                    .resizable()
+                                    .frame(width: 1000, height: 800)
+                                
+                                if items.indices.contains(0) {
+                                    ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
+                                        .padding(.bottom, 100)
                                 }
-
+                                if items.indices.contains(1) {
+                                    ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: 50))
                                 }
+                                if items.indices.contains(2) {
+                                    ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: 50))
+                                }
+                                if items.indices.contains(3) {
+                                    ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: 50))
+                                }
+                                    
+                            }
                                 HStack{
                                     //                                    Image("Blober")
                                     //                                        .resizable()
@@ -60,7 +83,9 @@ struct ContentView: View {
                             }
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
-                    }
+                    Spacer()
+                }
+                
                 }
                 
                 HStack{
@@ -70,6 +95,7 @@ struct ContentView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
+                            .opacity(0.3)
                     }
                     NavigationLink(destination: Wardrobe()) {
                         Text("Go to your Wardrobe")
@@ -77,7 +103,7 @@ struct ContentView: View {
                             .background(Color.blue)
                             .foregroundColor(.white)
                             .cornerRadius(10)
-                        
+                            .opacity(0.3)
                             .padding()
                         
                         HStack{
@@ -97,8 +123,8 @@ struct ContentView: View {
                                     .foregroundStyle(.blue)
                             }
                         }
+                        
                     }
-                    
                 }
                 
             }
