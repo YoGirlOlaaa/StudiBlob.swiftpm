@@ -7,9 +7,14 @@
 // creation of list view that shows how the user is able to add their assignment name, a description, and a date.
 
 import SwiftUI
+import SwiftData
 
 struct ListView: View{
     let currentItem: AssignmentItem
+    @State var Delete = false
+    @Environment(\.modelContext) var context
+    @Query var items: [AssignmentItem] = []
+    @AppStorage("totalPoints") var totalPoints: Int = 0
     var body: some View{
         ZStack{
             
@@ -31,10 +36,31 @@ struct ListView: View{
                     .offset(y: -60)
                     .frame(width: 350)
                 
+                if Delete{
+                    HStack{
+                        Button("Delete") {
+                            deleteAssignment(currentItem)
+                        }
+                        .foregroundColor(.blue)
+                        
+                    }
+                } else {
+                    Button("Delete") {
+                        Delete = true
+                    }
+                    .foregroundColor(.blue)
+                }
+                
                 
             }
         }
         .font(.title)
+    }
+    //this code "delete assignment" helps to compress points to the store
+    func deleteAssignment(_ item: AssignmentItem){
+        totalPoints += item.totalPoints
+        context.delete(item)
+        
     }
 }
 
