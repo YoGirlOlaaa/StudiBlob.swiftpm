@@ -7,6 +7,7 @@ struct ContentView: View {
     @State var selectedPoints: Double = 50.0
     @AppStorage("totalPoints") var totalPoints: Int = 0
     @State var assetHat = ""
+    @State var assetEyes = ""
     @State var instruction = false
     
     var body: some View {
@@ -57,6 +58,9 @@ struct ContentView: View {
                                         Image(assetHat)
                                             .resizable()
                                             .frame(width: 1000, height: 800)
+                                        Image(assetEyes)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
                                     }
                                     if items.indices.contains(0) {
                                         ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
@@ -98,7 +102,7 @@ struct ContentView: View {
                             .cornerRadius(10)
                             .opacity(0.3)
                     }
-                    NavigationLink(destination: Wardrobe(assetHat: $assetHat)) {
+                    NavigationLink(destination: Wardrobe(assetHat: $assetHat, assetEyes: $assetEyes)) {
                         Text("Go to your Wardrobe")
                             .padding()
                             .background(Color.blue)
