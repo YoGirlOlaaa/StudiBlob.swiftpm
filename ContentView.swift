@@ -56,17 +56,30 @@ struct ContentView: View {
                                 
                                 if items.indices.contains(0) {
                                     ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
-                                        .padding(.bottom, 100)
+                                        .padding(.bottom, 550)
                                 }
+                                    
                                 if items.indices.contains(1) {
                                     ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: 50))
+                                        .padding(.trailing, 800)
+                                        .padding(.bottom, 200)
                                 }
                                 if items.indices.contains(2) {
                                     ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: 50))
+                                        .padding(.leading, 800)
+                                        .padding(.bottom, 200)
                                 }
                                 if items.indices.contains(3) {
                                     ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: 50))
+                                        .padding(.trailing, 800)
+                                        .padding(.top, 500)
                                 }
+                                if items.indices.contains(4) {
+                                    ListView(currentItem: AssignmentItem(name: items[4].name, description: items[4].descriptionn, date: Date(), points: 50))
+                                        .padding(.leading, 800)
+                                        .padding(.top, 500)
+                                }
+
                                     
                             }
                                 HStack{

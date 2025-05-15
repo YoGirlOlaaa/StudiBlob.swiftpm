@@ -13,6 +13,7 @@ struct Assist: Identifiable, Equatable {
     let cost: Int
     let category: String
     let picture: String
+    
 }
 
 //store-categories card icon view
