@@ -43,12 +43,7 @@ struct ContentView: View {
                         VStack{
                             ScrollView{
                                 HeaderView(showSheet: false, showSheet1: false)
-                                // List{
-                                // ForEach(items, id: \.self){ currentItem in
-                                //   ListView(currentItem: currentItem)
-                                //  }
-                                // .onDelete(perform: deleteAssignment)
-                                // }
+                             
                                 ZStack{
                                     ZStack{
                                         
@@ -64,16 +59,27 @@ struct ContentView: View {
                                     }
                                     if items.indices.contains(0) {
                                         ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
-                                            .padding(.bottom, 100)
+                                            .padding(.bottom, 520)
                                     }
                                     if items.indices.contains(1) {
                                         ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: 50))
+                                            .padding(.bottom, 100)
+                                            .padding(.trailing, 680)
                                     }
                                     if items.indices.contains(2) {
                                         ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: 50))
+                                            .padding(.bottom, 100)
+                                            .padding(.leading, 680)
                                     }
                                     if items.indices.contains(3) {
                                         ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: 50))
+                                            .padding(.top, 600)
+                                            .padding(.leading, 680)
+                                    }
+                                    if items.indices.contains(4) {
+                                        ListView(currentItem: AssignmentItem(name: items[4].name, description: items[4].descriptionn, date: Date(), points: 50))
+                                            .padding(.top, 600)
+                                            .padding(.trailing, 680)
                                     }
                                     
                                 }
