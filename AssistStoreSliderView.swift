@@ -10,11 +10,11 @@ struct AssistStoreSliderView: View {
     @ObservedObject var viewModel: CharacterViewModel
     //a list of assist item with name,iconname,cost,category, and picture
     let assists = [
-        Assist(name: "Crown", iconName: "Crown", cost: 30, category: "Hats", picture: "Crown"),
-        Assist(name: "Black Top Hat", iconName: "hat.fill", cost: 30, category: "Hats", picture: "Black Top Hat"),
-        Assist(name: "Witch Hat", iconName: "hat.fill", cost: 20, category: "Hats", picture: "Witch Hat"),
-        Assist(name: "Halo", iconName: "hat.fill", cost: 35, category: "Hats", picture: "Halo"),
-        Assist(name: "Horns", iconName: "hat.fill", cost: 20, category: "Hats", picture: "Horns"),
+        Assist(name: "Red Hat", iconName: "hat.fill", cost: 30, category: "Hats", picture: "hat.widebrim.fill"),
+        Assist(name: "Flower Hat", iconName: "hat.fill", cost: 30, category: "Hats", picture: "hat.widebrim.fill"),
+        Assist(name: "Black Hat", iconName: "hat.fill", cost: 20, category: "Hats", picture: "hat.widebrim.fill"),
+        Assist(name: "Pink Hat", iconName: "hat.fill", cost: 35, category: "Hats", picture: "hat.widebrim.fill"),
+        Assist(name: "Blue Hat", iconName: "hat.fill", cost: 20, category: "Hats", picture: "hat.widebrim.fill"),
         Assist(name: "Green Shirt", iconName: "tshirt.fill", cost: 25, category: "Shirts", picture: "tshirt.fill"),
         Assist(name: "Classic Pants", iconName: "jeans.walk", cost: 35, category: "Pants", picture: "figure.socialdance"),
         Assist(name: "Short", iconName: "jeans.walk", cost: 25, category: "Pants", picture: "figure.socialdance"),
