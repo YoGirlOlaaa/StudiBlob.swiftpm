@@ -8,6 +8,8 @@ struct ContentView: View {
     @AppStorage("totalPoints") var totalPoints: Int = 0
     @State var assetHat = ""
     @State var assetEyes = ""
+    @State var assetShirt = ""
+    @State var assetShorts = ""
     @State var instruction = false
     
     var body: some View {
@@ -54,6 +56,12 @@ struct ContentView: View {
                                             .resizable()
                                             .frame(width: 1000, height: 800)
                                         Image(assetEyes)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+                                        Image(assetShorts)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+                                        Image(assetShirt)
                                             .resizable()
                                             .frame(width: 1000, height: 800)
                                     }
@@ -108,7 +116,7 @@ struct ContentView: View {
                             .cornerRadius(10)
                             .opacity(0.3)
                     }
-                    NavigationLink(destination: Wardrobe(assetHat: $assetHat, assetEyes: $assetEyes)) {
+                    NavigationLink(destination: Wardrobe(assetHat: $assetHat, assetEyes: $assetEyes, assetShirt: $assetShirt, assetShorts: $assetShorts)) {
                         Text("Go to your Wardrobe")
                             .padding()
                             .background(Color.blue)

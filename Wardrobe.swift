@@ -10,6 +10,8 @@ import SwiftUI
 struct Wardrobe: View {
     @Binding var assetHat: String
     @Binding var assetEyes: String
+    @Binding var assetShirt: String
+    @Binding var assetShort: String
     let menuItems = ["Crown", "Horns", "Black Top Hat", "Hearts", "Leafy Hat", "Credits", "Help"]
     let menuEyes = ["Eyelids 1", "Eyelashes 1", "Black Top Hat", "Hearts", "Leafy Hat", "Witch Hat", "Help"]
     //    these have to be replaced with the bought items
