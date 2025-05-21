@@ -13,14 +13,14 @@ struct Store: View {
     @AppStorage("totalPoints") var totalPoints: Int = 0
     var body: some View {
         ZStack(alignment: .top){
-            Image("Image")
-                .resizable()
-                .scaledToFill()
-                .frame(maxHeight: 170)
-                .clipped()
-                .ignoresSafeArea(edges: .top)
-                .cornerRadius(10)
-            
+           // Image("Image")
+//                .resizable()
+//                .scaledToFill()
+//                .frame(maxHeight: 170)
+//                .clipped()
+//                .ignoresSafeArea(edges: .top)
+//                .cornerRadius(10)
+//            
             VStack(alignment: .center, spacing: 20) {
                 
                 Text("Store")
