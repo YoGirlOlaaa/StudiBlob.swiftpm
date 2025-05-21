@@ -7,7 +7,7 @@
 
 
 import SwiftUI
-
+let customBlue = UIColor(named: "#3399FF")
 struct OnboardingView: View {
     var body: some View {
         TabView{
@@ -28,15 +28,20 @@ struct OB1View: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
-                .fill(.pink.gradient)
+              .fill(.blue.gradient)
                 .opacity(0.5)
             VStack{
                 Text("How to use StudiBlob")
-                    .font(.title)
-                Text("1. Click 'Add an Asignment' to create a new assignment.")
+                    .font(.custom("Futura", size: 30))
+                       .font(.title)
+                       
+             Text("1. Click 'Add an Asignment' to create a new assignment.")
+                    .font(.custom("Futura", size: 20))
                     .font(.headline)
-                Text("2. Completeing assignment gives you points that you can use to the store.")
+                Text("2. Completeing assignment gives you points that you can use in the store to obtain fun accessories.")
+                    .font(.custom("Futura", size: 20))
                     .font(.headline)
+                    
             }
               .foregroundStyle(.white)
         }
@@ -50,12 +55,14 @@ struct OB1View: View {
         var body: some View {
             ZStack{
                 RoundedRectangle(cornerRadius: 10)
-                    .fill(.purple.gradient)
+                    .fill(.blue.gradient)
                     .opacity(0.5)
                 VStack{
                     Text("Last But Not Least")
+                        .font(.custom("Futura", size: 30))
                         .font(.title)
                     Text("3. Click 'Go to the Store' to see your points and how much you can spend on your favorite items.")
+                        .font(.custom("Futura", size: 20))
                         .frame(width: 400)
                     Image("Blober")
                         .font(.largeTitle)
@@ -63,6 +70,7 @@ struct OB1View: View {
                     Button("Get Started"){
                         hasSeenOnboarding = true
                     }
+                    .font(.custom("Futura", size: 30))
                     .font(.largeTitle)
                 }
                 
