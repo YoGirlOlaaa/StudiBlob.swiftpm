@@ -66,26 +66,26 @@ struct ContentView: View {
                                             .frame(width: 1000, height: 800)
                                     }
                                     if items.indices.contains(0) {
-                                        ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: 50))
+                                        ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: items[0].totalPoints))
                                             .padding(.bottom, 520)
                                     }
                                     if items.indices.contains(1) {
-                                        ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: 50))
+                                        ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: items[0].totalPoints))
                                             .padding(.bottom, 100)
                                             .padding(.trailing, 680)
                                     }
                                     if items.indices.contains(2) {
-                                        ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: 50))
+                                        ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: items[0].totalPoints))
                                             .padding(.bottom, 100)
                                             .padding(.leading, 680)
                                     }
                                     if items.indices.contains(3) {
-                                        ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: 50))
+                                        ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: items[0].totalPoints))
                                             .padding(.top, 600)
                                             .padding(.leading, 680)
                                     }
                                     if items.indices.contains(4) {
-                                        ListView(currentItem: AssignmentItem(name: items[4].name, description: items[4].descriptionn, date: Date(), points: 50))
+                                        ListView(currentItem: AssignmentItem(name: items[4].name, description: items[4].descriptionn, date: Date(), points: items[0].totalPoints))
                                             .padding(.top, 600)
                                             .padding(.trailing, 680)
                                     }
@@ -162,7 +162,7 @@ struct ContentView: View {
                     .foregroundColor(.blue)
                     .bold()
                     .padding()
-                Text("1. Click 'Add an Asignment' to create a new assignment.")
+                Text("1. Click 'Add an Assignment' to create a new assignment.")
                     .font(.title)
                     .foregroundColor(.black)
                     .padding()

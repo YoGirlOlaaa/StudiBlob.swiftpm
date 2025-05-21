@@ -12,16 +12,23 @@ struct Store: View {
     @StateObject var viewModel = CharacterViewModel()
     @AppStorage("totalPoints") var totalPoints: Int = 0
     var body: some View {
-        VStack(alignment: .center, spacing: 20) {
-            HStack{
+        ZStack(alignment: .top){
+            Image("Image")
+                .resizable()
+                .scaledToFill()
+                .frame(maxHeight: 170)
+                .clipped()
+                .ignoresSafeArea(edges: .top)
+                .cornerRadius(10)
+            
+            VStack(alignment: .center, spacing: 20) {
+                
                 Text("Store")
                     .font(.largeTitle)
                     .bold()
                     .frame(alignment: .top)
                     .padding()
-                Image("Blober")
-                    .resizable()
-                .frame(width: 250, height: 200)}
+              }
             
             VStack(alignment: .trailing){
                 Text("Points: \(totalPoints) ")
@@ -47,12 +54,15 @@ struct Store: View {
                 AssistStoreSliderView(viewModel: viewModel)
                 
                 
-                Spacer()
             }
+            Spacer()
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
-    
+      
 }
+
+
 #Preview {
     Store()
 }

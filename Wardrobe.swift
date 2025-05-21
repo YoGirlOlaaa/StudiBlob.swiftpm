@@ -17,13 +17,27 @@ struct Wardrobe: View {
     //    these have to be replaced with the bought items
     var body: some View {
         
-        Text("Welcome To Your Wardrobe")
-            .font(.system(size: 55, weight: .semibold, design: .serif))
-            .frame(alignment: .top)
-        Text("Click to put on an item")
-            .font(.system(size: 30, weight: .semibold, design: .serif))
-            .frame(alignment: .top)
-        VStack{
+        ZStack(alignment: .top){
+            Image("Image")
+                .resizable()
+                .scaledToFill()
+                .frame(maxHeight: 200)
+                .clipped()
+                .ignoresSafeArea(edges:.top)
+            
+            
+            Text("Welcome To Your Wardrobe")
+                .font(.system(size: 55, weight: .semibold, design: .serif))
+                .frame(alignment: .top)
+            
+            VStack(spacing: 20) {
+                Spacer().frame(height:50)
+                Text("Click to put on an item")
+                    .font(.system(size: 30, weight: .semibold, design: .serif))
+                    .frame(alignment: .top)
+            }
+            
+            
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 10) {
                     
@@ -35,7 +49,7 @@ struct Wardrobe: View {
                             ZStack{
                                 Image(item)
                                     .resizable()
-                                    
+                                
                                 RoundedRectangle(cornerRadius: 10)
                                     .frame(width: 20, height: 20)
                                 Text(item)
@@ -48,45 +62,46 @@ struct Wardrobe: View {
                                     .shadow(radius: 5)
                             }
                             
-                        }
-                        //                                make this fit and look how you want it to
-                    }
-                }.frame(height: 300)
-            }
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10){
-                    ForEach(menuEyes, id: \.self) { item in
-                        Button(action: {
-                            assetEyes = item
-                        })  {
-                            ZStack{
-                                Image(item)
-                                
-                                RoundedRectangle(cornerRadius: 10)
-                                    .frame(width: 20, height: 20)
-                                Text(item)
-                                    .font(.title2)
-                                    .padding()
-                                    .background(Color.blue)
-                                    .foregroundColor(.white)
-                                    .cornerRadius(10)
-                                
-                                    .shadow(radius: 5)
-                            }
                             
                             //                                make this fit and look how you want it to
                         }
-                    }
+                    }.frame(height: 300)
                 }
-                .padding(.horizontal)
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10){
+                        ForEach(menuEyes, id: \.self) { item in
+                            Button(action: {
+                                assetEyes = item
+                            })  {
+                                ZStack{
+                                    Image(item)
+                                    
+                                    RoundedRectangle(cornerRadius: 10)
+                                        .frame(width: 20, height: 20)
+                                    Text(item)
+                                        .font(.title2)
+                                        .padding()
+                                        .background(Color.blue)
+                                        .foregroundColor(.white)
+                                        .cornerRadius(10)
+                                    
+                                        .shadow(radius: 5)
+                                }
+                                
+                                //                                make this fit and look how you want it to
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+                .frame(height: 150)
+                Spacer()
+                
             }
-            .frame(height: 150)
-           
+            .padding()
         }
-        
+        .navigationBarTitleDisplayMode(.inline)
     }
-        
-        
         
         
         
