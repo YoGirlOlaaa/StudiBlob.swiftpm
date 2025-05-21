@@ -27,9 +27,7 @@ struct ContentView: View {
                     VStack{
                         
                         ZStack{
-                            Image("Image")
-                                .resizable()
-                                .frame(maxWidth: .infinity, maxHeight: 200)
+                        
                             
                             
                             

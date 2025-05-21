@@ -18,13 +18,13 @@ struct Wardrobe: View {
     var body: some View {
         
         ZStack(alignment: .top){
-            Image("Image")
-                .resizable()
-                .scaledToFill()
-                .frame(maxHeight: 200)
-                .clipped()
-                .ignoresSafeArea(edges:.top)
-            
+           // Image("Image")
+//                .resizable()
+//                .scaledToFill()
+//                .frame(maxHeight: 200)
+//                .clipped()
+//                .ignoresSafeArea(edges:.top)
+//            
             
             Text("Welcome To Your Wardrobe")
                 .font(.system(size: 55, weight: .semibold, design: .serif))
