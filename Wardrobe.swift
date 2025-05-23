@@ -14,7 +14,8 @@ struct Wardrobe: View {
     @Binding var assetShort: String
     let menuItems = ["Crown", "Horns", "Black Top Hat", "Hearts", "Leafy Hat", "Credits", "Help"]
     let menuEyes = ["Eyelids 1", "Eyelashes 1", "Black Top Hat", "Hearts", "Leafy Hat", "Witch Hat", "Help"]
-    let menuShort = ["Yellow Shorts", "Jean Short"]
+    let menuShort = ["Yellow Shorts", "Jean Short", "Overalls"]
+    let menuShirt = ["Bikini", "Princess Dress", "Overalls"]
     //    these have to be replaced with the bought items
     var body: some View {
         
@@ -133,15 +134,44 @@ struct Wardrobe: View {
             .navigationBarTitleDisplayMode(.inline)
         }
         
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 10) {
+                
+                ForEach(menuShirt, id: \.self) { item in
+                    Button(action: {
+                        assetShirt = item
+                    })  {
+                        
+                        ZStack{
+                            Image(item)
+                                .resizable()
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .frame(width: 20, height: 20)
+                            Text(item)
+                                .font(.title2)
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                            
+                                .shadow(radius: 5)
+                        }
+                        
+                        
+                        //                                make this fit and look how you want it to
+                    }
+                }.frame(height: 300)
+            }
+            
+            
+            
+            
+        }
         
-        
-        
-        
+        //    #Preview {
+        //        Wardrobe(assetHat: $assetHat, assetEyes: $assetEyes)
+        //    }
         
     }
-    
-    //    #Preview {
-    //        Wardrobe(assetHat: $assetHat, assetEyes: $assetEyes)
-    //    }
-    
 }
