@@ -20,7 +20,13 @@ struct ContentView: View {
             VStack {
                 
                 
-                ZStack{
+                ZStack(alignment: .top){
+                    Image("Image")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxHeight: 200)
+                        .clipped()
+                        .ignoresSafeArea(edges: .top)
                     
                     
                     
