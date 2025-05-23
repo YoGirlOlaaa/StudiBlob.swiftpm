@@ -47,6 +47,9 @@ struct ContentView: View {
                         }
                         
                         VStack{
+                            Text("Total Points: \(totalPoints)"
+                            )
+                            .font(.title)
                             ScrollView{
                                 HeaderView(showSheet: false, showSheet1: false)
                              
