@@ -123,7 +123,8 @@ struct ListView: View{
     
     
     func CompleteAssignment(){
-        if let itemToComplete = items.first(where: { $0.totalPoints == currentItem.totalPoints }) {
+        if let itemToComplete = items.first(where: { $0.id == currentItem.id}) {
+            totalPoints += itemToComplete.totalPoints
             context.delete(itemToComplete)
             do {
                 try context.save()

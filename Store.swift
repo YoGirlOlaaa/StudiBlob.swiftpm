@@ -24,6 +24,7 @@ struct Store: View {
             VStack(alignment: .center, spacing: 20) {
                 
                 Text("Store")
+                    .offset(x: 0, y: -39)
                     .font(.largeTitle)
                     .bold()
                     .frame(alignment: .top)
@@ -50,13 +51,16 @@ struct Store: View {
                     }
                     .frame(height: 150)
                 }
-                
+                   
                 AssistStoreSliderView(viewModel: viewModel)
                 
                 
             }
+           
             Spacer()
+           
         }
+       
         .navigationBarTitleDisplayMode(.inline)
     }
       
