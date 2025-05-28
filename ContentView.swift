@@ -55,7 +55,8 @@ struct ContentView: View {
                              
                                 ZStack{
                                     ZStack{
-                                        
+                                        Color(.blue)
+                                            .opacity(0.2)
                                         Image("Blober")
                                             .resizable()
                                             .frame(width: 1000, height: 800)
