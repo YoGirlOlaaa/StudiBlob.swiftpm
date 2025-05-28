@@ -33,7 +33,7 @@ struct ContentView: View {
                     VStack{
                         
                         ZStack{
-                            
+                        
                             
                             
                             
@@ -47,72 +47,73 @@ struct ContentView: View {
                         }
                         
                         VStack{
-                           
-                                ScrollView{
-                                    HeaderView(showSheet: false, showSheet1: false)
-                                    
+                            Text("Total Points: \(totalPoints)"
+                            )
+                            .font(.title)
+                            ScrollView{
+                                HeaderView(showSheet: false, showSheet1: false)
+                             
+                                ZStack{
                                     ZStack{
-                                        Color(.blue)
-                                            .opacity(0.1)
                                         
-                                        ZStack{
-                                            
-                                            Image("Blober")
-                                                .resizable()
-                                                .frame(width: 1000, height: 800)
-                                            Image(assetHat)
-                                                .resizable()
-                                                .frame(width: 1000, height: 800)
-                                            Image(assetEyes)
-                                                .resizable()
-                                                .frame(width: 1000, height: 800)
-                                            Image(assetShort)
-                                                .resizable()
-                                                .frame(width: 1000, height: 800)
-                                            Image(assetShirt)
-                                                .resizable()
-                                                .frame(width: 1000, height: 800)
-                                        }
-                                        if items.indices.contains(0) {
-                                            ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: items[0].totalPoints))
-                                                .padding(.bottom, 520)
-                                        }
-                                        if items.indices.contains(1) {
-                                            ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: items[0].totalPoints))
-                                                .padding(.bottom, 100)
-                                                .padding(.trailing, 680)
-                                        }
-                                        if items.indices.contains(2) {
-                                            ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: items[0].totalPoints))
-                                                .padding(.bottom, 100)
-                                                .padding(.leading, 680)
-                                        }
-                                        if items.indices.contains(3) {
-                                            ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: items[0].totalPoints))
-                                                .padding(.top, 600)
-                                                .padding(.leading, 680)
-                                        }
-                                        if items.indices.contains(4) {
-                                            ListView(currentItem: AssignmentItem(name: items[4].name, description: items[4].descriptionn, date: Date(), points: items[0].totalPoints))
-                                                .padding(.top, 600)
-                                                .padding(.trailing, 680)
-                                        }
-                                        
+                                        Image("Blober")
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+                                        Image(assetHat)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+                                        Image(assetEyes)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+                                        Image(assetShirt)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+                                        Image(assetShort)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+//                                        Image(assetShirt)
+//                                            .resizable()
+//                                            .frame(width: 1000, height: 800)
                                     }
-                                    HStack{
-                                        //                                    Image("Blober")
-                                        //                                        .resizable()
-                                        //                                        .scaledToFit()
-                                        //                                        .frame(width: 9000, height: 800)
-                                        Spacer()
-                                        //                                    Image(asset)
+                                    if items.indices.contains(0) {
+                                        ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: items[0].totalPoints))
+                                            .padding(.bottom, 520)
                                     }
+                                    if items.indices.contains(1) {
+                                        ListView(currentItem: AssignmentItem(name: items[1].name, description: items[1].descriptionn, date: Date(), points: items[0].totalPoints))
+                                            .padding(.bottom, 100)
+                                            .padding(.trailing, 680)
+                                    }
+                                    if items.indices.contains(2) {
+                                        ListView(currentItem: AssignmentItem(name: items[2].name, description: items[2].descriptionn, date: Date(), points: items[0].totalPoints))
+                                            .padding(.bottom, 100)
+                                            .padding(.leading, 680)
+                                    }
+                                    if items.indices.contains(3) {
+                                        ListView(currentItem: AssignmentItem(name: items[3].name, description: items[3].descriptionn, date: Date(), points: items[0].totalPoints))
+                                            .padding(.top, 600)
+                                            .padding(.leading, 680)
+                                    }
+                                    if items.indices.contains(4) {
+                                        ListView(currentItem: AssignmentItem(name: items[4].name, description: items[4].descriptionn, date: Date(), points: items[0].totalPoints))
+                                            .padding(.top, 600)
+                                            .padding(.trailing, 680)
+                                    }
+                                    
                                 }
-                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                HStack{
+                                    //                                    Image("Blober")
+                                    //                                        .resizable()
+                                    //                                        .scaledToFit()
+                                    //                                        .frame(width: 9000, height: 800)
+                                    Spacer()
+                                    //                                    Image(asset)
+                                }
                             }
-                            Spacer()
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
                         }
-                    
+                        Spacer()
+                    }
                     
                 }
                 
