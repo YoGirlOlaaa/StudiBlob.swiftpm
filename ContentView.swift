@@ -55,7 +55,8 @@ struct ContentView: View {
                              
                                 ZStack{
                                     ZStack{
-                                        
+                                        Color(.blue)
+                                            .opacity(0.2)
                                         Image("Blober")
                                             .resizable()
                                             .frame(width: 1000, height: 800)
@@ -65,12 +66,15 @@ struct ContentView: View {
                                         Image(assetEyes)
                                             .resizable()
                                             .frame(width: 1000, height: 800)
-                                        Image(assetShort)
-                                            .resizable()
-                                            .frame(width: 1000, height: 800)
                                         Image(assetShirt)
                                             .resizable()
                                             .frame(width: 1000, height: 800)
+                                        Image(assetShort)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+//                                        Image(assetShirt)
+//                                            .resizable()
+//                                            .frame(width: 1000, height: 800)
                                     }
                                     if items.indices.contains(0) {
                                         ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: items[0].totalPoints))
@@ -119,18 +123,33 @@ struct ContentView: View {
                         Text("Go to the Store")
                             .padding()
                             .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
                             .opacity(0.3)
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                            .font(.system(size: 22, weight: .semibold, design: .serif))
                     }
                     NavigationLink(destination: Wardrobe(assetHat: $assetHat, assetEyes: $assetEyes, assetShirt: $assetShirt, assetShort: $assetShort)) {
                         Text("Go to your Wardrobe")
                             .padding()
                             .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
                             .opacity(0.3)
-                            .padding()
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                            .font(.system(size: 22, weight: .semibold, design: .serif))
+                         
+                        
+                        NavigationLink(destination: creditsView()) {
+                            Text("Show Credits")
+                                .padding()
+                                .background(Color.blue)
+                                .opacity(0.3)
+                                .foregroundColor(.black)
+                                .cornerRadius(10)
+                                .font(.system(size: 22, weight: .semibold, design: .serif))
+                                
+                            
+                        }
+                        
                         
                         HStack{
                             
@@ -147,7 +166,8 @@ struct ContentView: View {
                             .sheet(isPresented: $instruction) {
                                 InstructionView(instruction: $instruction)
                                     .foregroundStyle(.blue)
-                            }
+                           }
+                            
                         }
                         
                     }
