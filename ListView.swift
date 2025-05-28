@@ -82,12 +82,13 @@ struct ListView: View{
                             }
                         } label: {
                             Text("Complete")
-                                .font(.system(size: 20, weight: .semibold))
-                                .offset(CGSize(width: 0.0, height: -25.0))
-                                .padding(.trailing, 10)
-                                .foregroundStyle(.green)
+                             
                             
                         }
+                        .font(.system(size: 20, weight: .semibold))
+                            .offset(CGSize(width: 0.0, height: -25.0))
+                            .padding(.trailing, 10)
+                            .foregroundStyle(.green)
                         .font(.headline)
                         .alert("Congrats for finishing an assignment! You earned \(totalPoints) points", isPresented: $showCompleteAlert ){
                             Button("Complete", role: .destructive) {
@@ -123,7 +124,8 @@ struct ListView: View{
     
     
     func CompleteAssignment(){
-        if let itemToComplete = items.first(where: { $0.totalPoints == currentItem.totalPoints }) {
+        if let itemToComplete = items.first(where: { $0.id == currentItem.id}) {
+            totalPoints += itemToComplete.totalPoints
             context.delete(itemToComplete)
             do {
                 try context.save()

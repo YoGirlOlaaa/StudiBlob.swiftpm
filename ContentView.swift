@@ -123,27 +123,30 @@ struct ContentView: View {
                         Text("Go to the Store")
                             .padding()
                             .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
                             .opacity(0.3)
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                            .font(.system(size: 22, weight: .semibold, design: .serif))
                     }
                     NavigationLink(destination: Wardrobe(assetHat: $assetHat, assetEyes: $assetEyes, assetShirt: $assetShirt, assetShort: $assetShort)) {
                         Text("Go to your Wardrobe")
                             .padding()
                             .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
                             .opacity(0.3)
-                            .padding()
+                            .foregroundColor(.black)
+                            .cornerRadius(10)
+                            .font(.system(size: 22, weight: .semibold, design: .serif))
+                         
                         
                         NavigationLink(destination: creditsView()) {
                             Text("Show Credits")
                                 .padding()
                                 .background(Color.blue)
-                                .foregroundColor(.white)
-                                .cornerRadius(10)
                                 .opacity(0.3)
-                              
+                                .foregroundColor(.black)
+                                .cornerRadius(10)
+                                .font(.system(size: 22, weight: .semibold, design: .serif))
+                                
                             
                         }
                         
