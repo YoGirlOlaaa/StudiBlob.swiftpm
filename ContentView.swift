@@ -136,6 +136,18 @@ struct ContentView: View {
                             .opacity(0.3)
                             .padding()
                         
+                        NavigationLink(destination: creditsView()) {
+                            Text("Show Credits")
+                                .padding()
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                .opacity(0.3)
+                                .padding()
+                            
+                        }
+                        
+                        
                         HStack{
                             
                             Button(action: {
@@ -151,7 +163,8 @@ struct ContentView: View {
                             .sheet(isPresented: $instruction) {
                                 InstructionView(instruction: $instruction)
                                     .foregroundStyle(.blue)
-                            }
+                           }
+                            
                         }
                         
                     }
