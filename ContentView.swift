@@ -65,12 +65,15 @@ struct ContentView: View {
                                         Image(assetEyes)
                                             .resizable()
                                             .frame(width: 1000, height: 800)
-                                        Image(assetShort)
-                                            .resizable()
-                                            .frame(width: 1000, height: 800)
                                         Image(assetShirt)
                                             .resizable()
                                             .frame(width: 1000, height: 800)
+                                        Image(assetShort)
+                                            .resizable()
+                                            .frame(width: 1000, height: 800)
+//                                        Image(assetShirt)
+//                                            .resizable()
+//                                            .frame(width: 1000, height: 800)
                                     }
                                     if items.indices.contains(0) {
                                         ListView(currentItem: AssignmentItem(name: items[0].name, description: items[0].descriptionn, date: Date(), points: items[0].totalPoints))
