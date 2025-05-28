@@ -13,12 +13,11 @@ struct AssistStoreSliderView: View {
     let assists = [
         Assist(name: "Top Hat", iconName: "TopHat", cost: 30, category: "Hats", picture: "TopHat"),
         Assist(name: "Halo", iconName: "hat.fill", cost: 30, category: "Hats", picture: "Halo"),
-        Assist(name: "Black Hat", iconName: "hat.fill", cost: 20, category: "Hats", picture: "hat.widebrim.fill"),
+        Assist(name: "Hearts", iconName: "hat.fill", cost: 20, category: "Hats", picture: "Hearts"),
         Assist(name: "Pink Hat", iconName: "hat.fill", cost: 35, category: "Hats", picture: "hat.widebrim.fill"),
-        Assist(name: "Blue Hat", iconName: "hat.fill", cost: 20, category: "Hats", picture: "hat.widebrim.fill"),
-        Assist(name: "Green Shirt", iconName: "tshirt.fill", cost: 25, category: "Shirts", picture: "tshirt.fill"),
+        Assist(name: "Bikini", iconName: "tshirt.fill", cost: 25, category: "Shirts", picture: "Bikini"),
         Assist(name: "Yellow Pants", iconName: "jeans.walk", cost: 35, category: "Pants", picture: "Yellow"),
-        Assist(name: "Short", iconName: "jeans.walk", cost: 25, category: "Pants", picture: "figure.socialdance"),
+        Assist(name: "Overalls", iconName: "jeans.walk", cost: 25, category: "Pants", picture: "Overalls"),
         Assist(name: "Nike Shirt", iconName: "tshirt.fill", cost: 40, category: "Shirts", picture: "tshirt.fill"),
         Assist(name: "Blue Shirt", iconName: "tshirt.fill", cost: 20, category: "Shirts", picture: "tshirt.fill"),
         Assist(name: "Pink Shirt", iconName: "tshirt.fill", cost: 40, category: "Shirts", picture: "tshirt.fill"),
@@ -33,7 +32,8 @@ struct AssistStoreSliderView: View {
     ]
     
     
-    let assistCategories: [String] = ["Red Hat", "Flower Hat", "Black Hat", "Pink Hat", "Classic Pants", "Short", "Nike Shirt", "Blue Shirt", "Pink Shirt", "Jeans", "Pink Pants", "Black Pants", "Nike Sneakers", "BirkenStock", "Uggs", "Adidas", "Jordan", "Sunglasses"]
+    let assistCategories: [String] = ["Top Hat", "Halo", "Black Hat", "Hearts", "Pink Hat", "Yellow Pants", "Overalls", "Jeans", "Jeans", "Pink Pants", "Black Pants", "Nike Sneakers", "BirkenStock", "Uggs", "Adidas", "Jordan", "Sunglasses"]
+    
    var filteredAssists: [Assist] {
        if search.isEmpty {
            return assists
