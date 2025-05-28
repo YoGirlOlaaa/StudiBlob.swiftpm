@@ -143,7 +143,7 @@ struct ContentView: View {
                                 .foregroundColor(.white)
                                 .cornerRadius(10)
                                 .opacity(0.3)
-                                .padding()
+                              
                             
                         }
                         
