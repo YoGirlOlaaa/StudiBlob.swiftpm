@@ -8,6 +8,7 @@ import SwiftUI
 
 struct AssistStoreSliderView: View {
     @ObservedObject var viewModel: CharacterViewModel
+    @State var search: String = ""
     //a list of assist item with name,iconname,cost,category, and picture
     let assists = [
         Assist(name: "Top Hat", iconName: "TopHat", cost: 30, category: "Hats", picture: "TopHat"),
@@ -30,6 +31,16 @@ struct AssistStoreSliderView: View {
         Assist(name: "Adidas", iconName: "shoe", cost: 20, category: "Shoes", picture: "shoe"),
         Assist(name: "Jordan", iconName: "shoe", cost: 20, category: "Shoes", picture: "shoe")
     ]
+    
+    
+    let assistCategories: [String] = ["Red Hat", "Flower Hat", "Black Hat", "Pink Hat", "Classic Pants", "Short", "Nike Shirt", "Blue Shirt", "Pink Shirt", "Jeans", "Pink Pants", "Black Pants", "Nike Sneakers", "BirkenStock", "Uggs", "Adidas", "Jordan", "Sunglasses"]
+   var filteredAssists: [Assist] {
+       if search.isEmpty {
+           return assists
+       } else {
+           return assists.filter { $0.name.localizedCaseInsensitiveContains(search)}
+       }
+    }
    
     var groupedAssists: [String: [Assist]] {
         Dictionary(grouping: assists, by: { $0.category})
@@ -39,6 +50,11 @@ struct AssistStoreSliderView: View {
             
             
             VStack(alignment: .leading, spacing: 20) {
+                TextField("Search here", text: $search)
+                    .padding(8)
+                    .background((search.isEmpty) ? Color.gray.opacity(0.2) : Color.clear)
+                    .cornerRadius(8)
+                    .padding(.horizontal)
                 ForEach(groupedAssists.keys.sorted(), id: \.self) { category in
                     VStack(alignment: .leading) {
                         Text(category)
